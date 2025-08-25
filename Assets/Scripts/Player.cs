@@ -83,7 +83,11 @@ public class Player : MonoBehaviour
             {
                 gameManager.DamagePlayer(1);
 
-                StartCoroutine(IFrames(damageCooldown));
+                if (!dead)
+                {
+                    StartCoroutine(IFrames(damageCooldown));
+                }
+                
             }
         }
     }

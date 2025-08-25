@@ -42,8 +42,9 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         print("GameOver");
-        player.stopAllMovement();
+        player.setDead();
         player.gameObject.SetActive(false);
+        player.stopAllMovement();
 
         gameOverScreen.SetActive(true);
 
@@ -84,18 +85,20 @@ public class GameManager : MonoBehaviour
     {
         print("DamagePlayer");
         SetHealth(this.health - damage);
+        healthText.text = "Health : " + getHealth();
 
         if (this.health <= 0)
         {
             KillPlayer();
+            Invoke(nameof(GameOver), 1f);
         }
-        healthText.text = "Health : " + getHealth();
     }
 
     public void KillPlayer()
     {
-        print("Kill Player");
         player.setDead();
-        Invoke(nameof(GameOver), 1f);
+        player.gameObject.SetActive(false);
+        player.stopAllMovement();
     }
+
 }
