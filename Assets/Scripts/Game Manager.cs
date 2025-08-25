@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditor.SearchService;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
 
         player.gameObject.SetActive(true);
+
+    }
+
+    private void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void GameOver()
@@ -61,7 +68,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        NewGame();
+        Reload();
     }
 
     public int getHealth()
