@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor.SearchService;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class GameManager : MonoBehaviour
     // Mangaged Resources
     private int health;
     private int time;
+    private Dictionary<string, int> inventory =
+    new Dictionary<string, int>();
 
     // Debug Objects
-    public TMP_Text healthText;
+    public TMP_Text debugText;
 
     private void Start()
     {
@@ -27,9 +30,12 @@ public class GameManager : MonoBehaviour
         StopAllCoroutines();
 
         SetHealth(3);
-        healthText.text = "Health : " + getHealth();
-        gameOverScreen.SetActive(false);
+        inventory.Add("fuel", 0);
+        inventory.Add("ammo", 0);
 
+        updateDebug();
+
+        gameOverScreen.SetActive(false);
         player.gameObject.SetActive(true);
 
     }
@@ -85,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         print("DamagePlayer");
         SetHealth(this.health - damage);
-        healthText.text = "Health : " + getHealth();
+        debugText.text = "Health : " + getHealth();
 
         if (this.health <= 0)
         {
@@ -99,6 +105,48 @@ public class GameManager : MonoBehaviour
         player.setDead();
         player.gameObject.SetActive(false);
         player.stopAllMovement();
+    }
+
+    public void AddFuel(int amount)
+    {
+        inventory["fuel"] += amount;
+        updateDebug();
+
+    }
+
+    // Returns true if successful
+    public bool UseFuel()
+    {
+        if (inventory["fuel"] > 0)
+        {
+            inventory["fuel"] -= 1;
+            updateDebug();
+            return true;
+        }
+        return false;
+    }
+
+    public void AddAmmo(int amount)
+    {
+        inventory["ammo"] += amount;
+        updateDebug();
+    }
+
+    // Returns true if successful
+    public bool UseAmmo()
+    {
+        if (inventory["ammo"] > 0)
+        {
+            inventory["ammo"] -= 1;
+            updateDebug();
+            return true;
+        }
+        return false;
+    }
+
+    public void updateDebug()
+    {
+        debugText.text = getHealth() + "\n" + inventory["fuel"] + "\n" + inventory["ammo"];
     }
 
 }
