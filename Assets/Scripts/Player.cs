@@ -73,6 +73,17 @@ public class Player : MonoBehaviour
         {
             dashPressed = true;
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            gameManager.UseAmmo();
+            // Add Ammo Functionality
+        }
+        // Trigger temporary
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            gameManager.UseFuel();
+            // Add Fuel Functionality
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -89,6 +100,22 @@ public class Player : MonoBehaviour
                 }
                 
             }
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ammo")
+        {
+            gameManager.AddAmmo(other.gameObject.GetComponent<Pickup>().getNum());
+            other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.tag == "Fuel")
+        {
+            print("Fuel");
+            gameManager.AddFuel(1);
+            other.gameObject.SetActive(false);
         }
     }
 
