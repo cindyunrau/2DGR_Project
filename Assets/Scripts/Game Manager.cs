@@ -6,16 +6,14 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public Player player;
+    public GameObject gameOverScreen;
 
+    // Mangaged Resources
     private int health;
     private int time;
 
+    // Debug Objects
     public TMP_Text healthText;
-
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {
@@ -24,26 +22,23 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
+        print("NewGame");
+        StopAllCoroutines();
+
         SetHealth(3);
         healthText.text = "Health : " + getHealth();
-        NewLevel();
-    }
+        gameOverScreen.SetActive(false);
 
-    private void NewLevel()
-    {
-        Respawn();
-    }
-
-    private void Respawn()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        StopAllCoroutines();
+        player.gameObject.SetActive(true);
     }
 
     private void GameOver()
     {
+        print("GameOver");
         player.stopAllMovement();
         player.gameObject.SetActive(false);
+
+        gameOverScreen.SetActive(true);
 
         StopAllCoroutines();
         StartCoroutine(PlayAgain());
@@ -51,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayAgain()
     {
+        print("PlayAgain");
         bool playAgain = false;
 
         // play again menu
@@ -79,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        print("DamagePlayer");
         SetHealth(this.health - damage);
 
         if (this.health <= 0)
@@ -88,9 +85,9 @@ public class GameManager : MonoBehaviour
         healthText.text = "Health : " + getHealth();
     }
 
-    // Kills Main Character
     public void KillPlayer()
     {
+        print("Kill Player");
         player.setDead();
         Invoke(nameof(GameOver), 1f);
     }
