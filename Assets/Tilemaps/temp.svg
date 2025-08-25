@@ -8,7 +8,7 @@
    version="1.1"
    id="SVGRoot"
    sodipodi:docname="temp.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    inkscape:export-filename="temp.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
@@ -28,12 +28,12 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="5.6568542"
-     inkscape:cx="79.991455"
-     inkscape:cy="25.455844"
-     inkscape:window-width="1920"
+     inkscape:cx="115.17002"
+     inkscape:cy="23.599689"
+     inkscape:window-width="1902"
      inkscape:window-height="1027"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      showguides="true">
@@ -42,7 +42,9 @@
        id="grid179"
        units="px"
        spacingx="8.4666667"
-       spacingy="8.4666667" />
+       spacingy="8.4666667"
+       originx="0"
+       originy="0" />
   </sodipodi:namedview>
   <defs
      id="defs17656" />
@@ -390,6 +392,180 @@
         <rect
            style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
            id="rect5934"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="-0.26458332"
+           transform="scale(1,-1)" />
+      </g>
+    </g>
+    <g
+       id="g10"
+       transform="translate(33.866667)">
+      <rect
+         style="fill:#fbd2b7;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect1"
+         width="8.4666662"
+         height="8.4666662"
+         x="0"
+         y="-4.4408921e-16" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:'__CONSOLE__?';-inkscape-font-specification:'__CONSOLE__?, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+         x="0.80469835"
+         y="5.0139055"
+         id="text1"
+         inkscape:label="text5918"><tspan
+           sodipodi:role="line"
+           id="tspan19"
+           x="0.80469835"
+           y="5.0139055">ammo</tspan></text>
+      <g
+         id="g9">
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect2"
+           width="2.6458333"
+           height="0.26458332"
+           x="0"
+           y="0" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect3"
+           width="2.6458333"
+           height="0.26458332"
+           x="-2.6458333"
+           y="0"
+           transform="rotate(-90)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect4"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="-8.4666662"
+           transform="rotate(90)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect5"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="8.2020836" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect6"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="4.2468309e-07"
+           transform="matrix(0,1,1,0,0,0)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect7"
+           width="2.6458333"
+           height="0.26458332"
+           x="-2.6458333"
+           y="8.2020845"
+           transform="scale(-1,1)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect8"
+           width="2.6458333"
+           height="0.26458332"
+           x="-2.6458333"
+           y="-8.4666662"
+           transform="matrix(0,-1,-1,0,0,0)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect9"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="-0.26458332"
+           transform="scale(1,-1)" />
+      </g>
+    </g>
+    <g
+       id="g19"
+       transform="translate(42.333333)">
+      <rect
+         style="fill:#e4e1e1;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect10"
+         width="8.4666662"
+         height="8.4666662"
+         x="0"
+         y="-4.4408921e-16" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'__CONSOLE__?';-inkscape-font-specification:'__CONSOLE__?, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+         x="1.6933695"
+         y="5.434855"
+         id="text11"
+         inkscape:label="text5918"><tspan
+           sodipodi:role="line"
+           id="tspan11"
+           x="1.6933695"
+           y="5.434855">fuel</tspan></text>
+      <g
+         id="g18">
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect11"
+           width="2.6458333"
+           height="0.26458332"
+           x="0"
+           y="0" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect12"
+           width="2.6458333"
+           height="0.26458332"
+           x="-2.6458333"
+           y="0"
+           transform="rotate(-90)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect13"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="-8.4666662"
+           transform="rotate(90)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect14"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="8.2020836" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect15"
+           width="2.6458333"
+           height="0.26458332"
+           x="5.8208332"
+           y="4.2468309e-07"
+           transform="matrix(0,1,1,0,0,0)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect16"
+           width="2.6458333"
+           height="0.26458332"
+           x="-2.6458333"
+           y="8.2020845"
+           transform="scale(-1,1)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect17"
+           width="2.6458333"
+           height="0.26458332"
+           x="-2.6458333"
+           y="-8.4666662"
+           transform="matrix(0,-1,-1,0,0,0)" />
+        <rect
+           style="fill:#000054;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round"
+           id="rect18"
            width="2.6458333"
            height="0.26458332"
            x="5.8208332"
