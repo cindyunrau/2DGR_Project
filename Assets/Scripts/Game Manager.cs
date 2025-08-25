@@ -1,13 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private Player player;
+    public Player player;
 
-    private int score;
     private int health;
     private int time;
+
+    public TMP_Text healthText;
 
     private void Awake()
     {
@@ -21,8 +24,8 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        SetScore(0);
         SetHealth(3);
+        healthText.text = "Health : " + getHealth();
         NewLevel();
     }
 
@@ -33,17 +36,13 @@ public class GameManager : MonoBehaviour
 
     private void Respawn()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StopAllCoroutines();
-    }
-
-    public void Kill()
-    {
-        Invoke(nameof(GameOver), 1f);
     }
 
     private void GameOver()
     {
+        player.stopAllMovement();
         player.gameObject.SetActive(false);
 
         StopAllCoroutines();
@@ -53,6 +52,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlayAgain()
     {
         bool playAgain = false;
+
+        // play again menu
 
         while (!playAgain)
         {
@@ -67,18 +68,30 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
-    private void AddScore(int score)
+    public int getHealth()
     {
-        this.score += score;
+        return health;
     }
-
-    private void SetScore(int score)
-    {
-        this.score = score;
-    }
-
     private void SetHealth(int health)
     {
         this.health = health;
+    }
+
+    public void DamagePlayer(int damage)
+    {
+        SetHealth(this.health - damage);
+
+        if (this.health <= 0)
+        {
+            KillPlayer();
+        }
+        healthText.text = "Health : " + getHealth();
+    }
+
+    // Kills Main Character
+    public void KillPlayer()
+    {
+        player.setDead();
+        Invoke(nameof(GameOver), 1f);
     }
 }
