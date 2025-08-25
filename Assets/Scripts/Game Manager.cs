@@ -1,18 +1,20 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEditor.SearchService;
 
 public class GameManager : MonoBehaviour
 {
-    private Player player;
+    public Player player;
+    public GameObject gameOverScreen;
 
-    private int score;
+    // Mangaged Resources
     private int health;
     private int time;
 
-    private void Awake()
-    {
-
-    }
+    // Debug Objects
+    public TMP_Text healthText;
 
     private void Start()
     {
@@ -21,30 +23,29 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        SetScore(0);
-        SetHealth(3);
-        NewLevel();
-    }
-
-    private void NewLevel()
-    {
-        Respawn();
-    }
-
-    private void Respawn()
-    {
-
+        print("NewGame");
         StopAllCoroutines();
+
+        SetHealth(3);
+        healthText.text = "Health : " + getHealth();
+        gameOverScreen.SetActive(false);
+
+        player.gameObject.SetActive(true);
+
     }
 
-    public void Kill()
+    private void Reload()
     {
-        Invoke(nameof(GameOver), 1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void GameOver()
     {
+        print("GameOver");
+        player.stopAllMovement();
         player.gameObject.SetActive(false);
+
+        gameOverScreen.SetActive(true);
 
         StopAllCoroutines();
         StartCoroutine(PlayAgain());
@@ -52,7 +53,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayAgain()
     {
+        print("PlayAgain");
         bool playAgain = false;
+
+        // play again menu
 
         while (!playAgain)
         {
@@ -64,21 +68,34 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        NewGame();
+        Reload();
     }
 
-    private void AddScore(int score)
+    public int getHealth()
     {
-        this.score += score;
+        return health;
     }
-
-    private void SetScore(int score)
-    {
-        this.score = score;
-    }
-
     private void SetHealth(int health)
     {
         this.health = health;
+    }
+
+    public void DamagePlayer(int damage)
+    {
+        print("DamagePlayer");
+        SetHealth(this.health - damage);
+
+        if (this.health <= 0)
+        {
+            KillPlayer();
+        }
+        healthText.text = "Health : " + getHealth();
+    }
+
+    public void KillPlayer()
+    {
+        print("Kill Player");
+        player.setDead();
+        Invoke(nameof(GameOver), 1f);
     }
 }

@@ -9,15 +9,14 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    public Transform jumpCheck;
-    public GameObject sparkle;
+    public GameManager gameManager;
+    
     //public CapsuleCollider2D collider;
 
     [Header("Health Variables")]
-    public int health = 5;
     public float damageCooldown = 0.5f;
     public bool isImmune = false;
-    public TMP_Text healthText;
+
 
     [Header("Movement Variables")]
     public float moveSpeed;
@@ -31,7 +30,7 @@ public class Player : MonoBehaviour
     public float dashTime;
     public float dashCooldown;
 
-    bool dead = false;
+    private bool dead = false;
 
     void Start()
     {
@@ -42,11 +41,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(health <= 0)
-        {
-            Kill();
-        }
-
         if (!dead)
         {
             if (isDashing)
@@ -87,26 +81,23 @@ public class Player : MonoBehaviour
         {
             if (!isImmune)
             {
-                health--;
-                healthText.text = "Health : " + health;
+                gameManager.DamagePlayer(1);
+
                 StartCoroutine(IFrames(damageCooldown));
             }
         }
     }
 
-    IEnumerator Reload(float delayTime)
+    public void stopAllMovement()
     {
-        yield return new WaitForSeconds(delayTime);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        rb.velocity = Vector2.zero;
     }
 
-    public void Kill()
+    public void setDead()
     {
-        StartCoroutine(Reload(3));
         isImmune = true;
         dead = true;
     }
-
     public bool isDead()
     {
         return dead;
