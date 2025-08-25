@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Vector2 target;
     [SerializeField] private GameObject player;
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed = 2f;
     private float distance;
     
 
