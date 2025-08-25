@@ -7,9 +7,9 @@ public class Enemy : MonoBehaviour
 {
 
     //[SerializeField] private Vector2 target;
-    //[SerializeField] private GameObject player;
+    [SerializeField] private GameObject player;
     //[SerializeField] private float moveSpeed = 2f;
-    //private float distance;
+    private float distance;
 
     [SerializeField] private Transform target;
     NavMeshAgent agent;
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        //target = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
     }
 
     private void Awake()
@@ -39,11 +39,12 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         //target = player.transform.position;
-        //distance = Vector2.Distance(transform.position, target);
-        //if (distance > 1)
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        //}
-        agent.SetDestination(target.position);
+        distance = Vector2.Distance(transform.position, player.transform.position);
+        if (distance > 1)
+        {
+            agent.SetDestination(target.position);
+            //transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        }
+        
     }
 }
