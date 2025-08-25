@@ -94,8 +94,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
     IEnumerator Reload(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
@@ -116,14 +114,26 @@ public class Player : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        GetComponent<CapsuleCollider2D>().enabled = false;
+        // Ignore collision with enemies
+        // Allows player to dash through
+        //GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+
+
+        // Dash
         canDash = false;
         isDashing = true;
         rb.velocity = new Vector2(rb.velocity.x * dashStrength, rb.velocity.y * dashStrength);
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
+
+        // Re-enables collisions with enemies
+        int layerBitmask = 1 << LayerMask.NameToLayer("Enemy");
+        //GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
+        GetComponent<CircleCollider2D>().excludeLayers &= ~layerBitmask;
+
+        // Dash cooldown
         yield return new WaitForSeconds(dashCooldown);
-        GetComponent<CapsuleCollider2D>().enabled = true;
         canDash = true;
     }
 

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Vector2 target;
     [SerializeField] private GameObject player;
     [SerializeField] private float moveSpeed = 3f;
+    private float distance;
     
 
     // Start is called before the first frame update
@@ -25,6 +26,10 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         target = player.transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        distance = Vector2.Distance(transform.position, target);
+        if (distance > 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        }
     }
 }
