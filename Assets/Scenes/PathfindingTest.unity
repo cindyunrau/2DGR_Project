@@ -3240,6 +3240,10 @@ PrefabInstance:
       propertyPath: m_IncludeLayers.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1790222941301616665, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4084415588397942623, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_Name
       value: Player
