@@ -9,15 +9,15 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    public GameManager gameManager;
-    public Spotlight_Control spotlight;
-    
+    public Transform jumpCheck;
+    public GameObject sparkle;
     //public CapsuleCollider2D collider;
 
     [Header("Health Variables")]
+    public int health = 5;
     public float damageCooldown = 0.5f;
     public bool isImmune = false;
-
+    public TMP_Text healthText;
 
     [Header("Movement Variables")]
     public float moveSpeed;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public float dashTime;
     public float dashCooldown;
 
-    private bool dead = false;
+    bool dead = false;
 
     void Start()
     {
@@ -42,6 +42,11 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(health <= 0)
+        {
+            Kill();
+        }
+
         if (!dead)
         {
             if (isDashing)
@@ -74,67 +79,46 @@ public class Player : MonoBehaviour
         {
             dashPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            gameManager.UseAmmo();
-            // Add Ammo Functionality
-        }
-        // Trigger temporary
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            gameManager.UseFuel();
-            // Add Fuel Functionality
-        }
     }
-    
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             if (!isImmune)
             {
-                gameManager.DamagePlayer(1);
-
-                float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
-
-                spotlight.setShrinking((spotlight.outerRange*percentHealth), (spotlight.innerRange*percentHealth));
-                
-
-                if (!dead)
-                {
-                    StartCoroutine(IFrames(damageCooldown));
-                }
-                
+                health--;
+                healthText.text = "Health : " + health;
+                StartCoroutine(IFrames(damageCooldown));
             }
         }
+    }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Enemy")
+    //    {
+    //        if (!isImmune)
+    //        {
+    //            health--;
+    //            healthText.text = "Health : " + health;
+    //            StartCoroutine(IFrames(damageCooldown));
+    //        }
+    //    }
+    //}
 
+    IEnumerator Reload(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Kill()
     {
-        if (other.gameObject.tag == "Ammo")
-        {
-            gameManager.AddAmmo(other.gameObject.GetComponent<Pickup>().getNum());
-            other.gameObject.SetActive(false);
-        }
-        else if (other.gameObject.tag == "Fuel")
-        {
-            print("Fuel");
-            gameManager.AddFuel(1);
-            other.gameObject.SetActive(false);
-        }
-    }
-
-    public void stopAllMovement()
-    {
-        rb.velocity = Vector2.zero;
-    }
-
-    public void setDead()
-    {
+        StartCoroutine(Reload(3));
         isImmune = true;
         dead = true;
     }
+
     public bool isDead()
     {
         return dead;
