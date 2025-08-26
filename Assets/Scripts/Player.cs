@@ -81,9 +81,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             if (!isImmune)
             {
@@ -93,6 +93,18 @@ public class Player : MonoBehaviour
             }
         }
     }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Enemy")
+    //    {
+    //        if (!isImmune)
+    //        {
+    //            health--;
+    //            healthText.text = "Health : " + health;
+    //            StartCoroutine(IFrames(damageCooldown));
+    //        }
+    //    }
+    //}
 
     IEnumerator Reload(float delayTime)
     {
