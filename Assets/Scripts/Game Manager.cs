@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     // Mangaged Resources
     private int health;
+    private int maxHealth = 3;
+
     private int time;
     private Dictionary<string, int> inventory =
     new Dictionary<string, int>();
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
         print("NewGame");
         StopAllCoroutines();
 
-        SetHealth(3);
+        SetHealth(maxHealth);
         inventory.Add("fuel", 0);
         inventory.Add("ammo", 0);
 
@@ -81,6 +83,11 @@ public class GameManager : MonoBehaviour
     public int getHealth()
     {
         return health;
+    }
+
+    public int getMaxHealth()
+    {
+        return maxHealth;
     }
     private void SetHealth(int health)
     {

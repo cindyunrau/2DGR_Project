@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using static UnityEngine.GraphicsBuffer;
 
 public class Spotlight_Control : MonoBehaviour
 {
@@ -10,25 +11,28 @@ public class Spotlight_Control : MonoBehaviour
     //holds a reference to the attached spotlight
     private Light2D spotlight;
 
-    //The maximum value for the outer radius of the attached spotlight
-    public float maxOuterRadius = 5f;
+    //holds a reference to the game manager object
+    public GameManager gm;
 
-    //The minimum value for the outer radius of the attached spotlight
-    public float minOuterRadius = 0.5f;
+    //the magnitude of the largest possible outer radius minus the smallest possible outer radius
+    public float outerRange;
 
-    //The maximum value for the inner radius of the attached spotlight
-    public float maxInnerRadius = 0.5f;
-    
-    //The minumum value for the inner radius of the attached spotlight
-    public float minInnerRadius = 0f;
+    //the magnitude of the largest possible inner radius minus the smallest possible inner radius
+    public float innerRange;
+
+    //Target size for the outer radius
+    public float targetOuterRadius;
+
+    //Target size for the outer radius
+    public float targetInnerRadius;
 
     //The time it takes for the spotlight to transition between maximum and minimum radius values
-    public float smoothTime = 10f;
+    public float smoothTime = 0.75f;
 
-    //The difference between the maximum and minimum outer radius values
+    //The change in outer radius every fixed update
     private float deltaSizeOuter = 0f;
 
-    //The difference between the maximum and minimum inner radius values
+    //The change in inner radius every fixed update
     private float deltaSizeInner = 0f;
 
     //boolean flag for if the light should be growing
@@ -40,13 +44,10 @@ public class Spotlight_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         //getting references and setting initial values
         spotlight = GetComponent<Light2D>();
-        spotlight.pointLightOuterRadius = maxOuterRadius;
-        spotlight.pointLightInnerRadius = maxInnerRadius;
-        deltaSizeOuter = ((maxOuterRadius - minOuterRadius) / smoothTime) / 50f;
-        deltaSizeInner = ((maxInnerRadius - minInnerRadius) / smoothTime) / 50f;
+        outerRange = spotlight.pointLightOuterRadius;
+        innerRange = spotlight.pointLightInnerRadius;
     }
 
     // FixedUpdate is called every fixed update frame (default 50 times per second)
@@ -57,7 +58,7 @@ public class Spotlight_Control : MonoBehaviour
         {
 
             //Checking if the spotlight radiuses have reached their minimum radius values
-            if (((spotlight.pointLightOuterRadius - minOuterRadius) > 0.01) && ((spotlight.pointLightInnerRadius - minInnerRadius) > 0.01))
+            if (((spotlight.pointLightOuterRadius - targetOuterRadius) > 0.01) && ((spotlight.pointLightInnerRadius - targetInnerRadius) > 0.01))
             {
 
                 //if the spotlights haven't reached their minimum radius values, subtract delta from the radiuses
@@ -71,7 +72,7 @@ public class Spotlight_Control : MonoBehaviour
         {
 
             //Checking if the spotlight radiuses have reached their maximum radius values
-            if (((maxOuterRadius - spotlight.pointLightOuterRadius) > 0.01) && ((maxInnerRadius - spotlight.pointLightInnerRadius) > 0.01))
+            if (((targetOuterRadius - spotlight.pointLightOuterRadius) > 0.01) && ((targetInnerRadius - spotlight.pointLightInnerRadius) > 0.01))
             {
 
                 //if the spotlights haven't reached their maximum radius values, adding delta to the radiuses
@@ -82,23 +83,29 @@ public class Spotlight_Control : MonoBehaviour
     }
 
     //set function for the growing flag
-    void setGrowing(bool b)
+    public void setGrowing(float targetOut, float targetIn)
     {
-        if (b)
-        {
-            growing = true;
-            shrinking = false;
-        }
+        targetOuterRadius = targetOut;
+        targetInnerRadius = targetIn;
+
+        deltaSizeOuter = ((targetOuterRadius - spotlight.pointLightOuterRadius) / smoothTime) / 50;
+        deltaSizeInner = ((targetInnerRadius - spotlight.pointLightInnerRadius) / smoothTime) / 50;
+
+        growing = true;
+        shrinking = false;
     }
 
     //set function for the shrinking flag
-    void setShrinking(bool b)
+    public void setShrinking(float targetOut, float targetIn)
     {
-        if (b)
-        {
-            growing = false;
-            shrinking = true;
-        }
+        targetOuterRadius = targetOut;
+        targetInnerRadius = targetIn;
+
+        deltaSizeOuter = ((spotlight.pointLightOuterRadius - targetOuterRadius) / smoothTime) / 50;
+        deltaSizeInner = ((spotlight.pointLightInnerRadius - targetInnerRadius) / smoothTime) / 50;
+
+        growing = false;
+        shrinking = true;
 
     }
 

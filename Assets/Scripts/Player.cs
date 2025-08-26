@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     public GameManager gameManager;
+    public Spotlight_Control spotlight;
     
     //public CapsuleCollider2D collider;
 
@@ -93,6 +94,11 @@ public class Player : MonoBehaviour
             if (!isImmune)
             {
                 gameManager.DamagePlayer(1);
+
+                float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
+
+                spotlight.setShrinking((spotlight.outerRange*percentHealth), (spotlight.innerRange*percentHealth));
+                
 
                 if (!dead)
                 {

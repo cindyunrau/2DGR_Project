@@ -218,7 +218,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.75
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -265,11 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a5a73caacc61b41b9d8a16ba5a3e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxOuterRadius: 5
-  minOuterRadius: 0.5
-  maxInnerRadius: 0.5
-  minInnerRadius: 0
-  smoothTime: 10
+  gm: {fileID: 4745774}
+  outerRange: 0
+  innerRange: 0
+  targetOuterRadius: 0
+  targetInnerRadius: 0
+  smoothTime: 0.75
 --- !u!1001 &55503850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3281,7 +3282,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.005
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000005fef35d56bb8b9dc339c4de58bc30e032f5de036dfa7944c
@@ -3533,6 +3534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 843206756263361822, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
+      propertyPath: spotlight
+      value: 
+      objectReference: {fileID: 14385317}
     - target: {fileID: 843206756263361822, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: healthText
       value: 
