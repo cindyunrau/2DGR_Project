@@ -107,6 +107,18 @@ public class Player : MonoBehaviour
             }
         }
     }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Enemy")
+    //    {
+    //        if (!isImmune)
+    //        {
+    //            health--;
+    //            healthText.text = "Health : " + health;
+    //            StartCoroutine(IFrames(damageCooldown));
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
