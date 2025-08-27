@@ -8,11 +8,17 @@ public class PitDetection : MonoBehaviour
     public GameObject parent;
     public SpriteRenderer sprite;
     private GameManager gm;
+    private Player player;
 
     private void Start()
     {
         sprite = parent.GetComponent<SpriteRenderer>();
         gm = FindAnyObjectByType<GameManager>();
+
+        if (parent.tag == "Player")
+        {
+            player = parent.gameObject.GetComponent<Player>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,8 +32,11 @@ public class PitDetection : MonoBehaviour
             }
 
             if(parent.tag == "Player")
-            {
-                gm.KillPlayer();
+            { 
+                if (!player.isDashing)
+                {
+                    gm.KillPlayer();
+                }   
             }
             
         }
