@@ -5,8 +5,8 @@ public class FadeInUI : MonoBehaviour
 {
     public float duration = 1.0f; 
     private CanvasGroup canvasGroup;
-    public bool fadeOut = false;
-    private float textDuration = 2f;
+   
+
 
     void Awake()
     {
@@ -19,16 +19,13 @@ public class FadeInUI : MonoBehaviour
         if (canvasGroup != null)
         {
             
-            StartCoroutine(FadeInCoroutine());
-            if (fadeOut)
-            {
-                StartCoroutine(FadeOutCoroutine());
-            }
-            
+            StartCoroutine(FadeIn());
+
+       
         }
     }
 
-    IEnumerator FadeInCoroutine()
+    IEnumerator FadeIn()
     {
         for (float t = 0f; t < duration; t += Time.deltaTime)
         {
@@ -39,9 +36,8 @@ public class FadeInUI : MonoBehaviour
         canvasGroup.alpha = 1f; 
     }
 
-    IEnumerator FadeOutCoroutine()
+    public IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(textDuration);
         for (float t = 0f; t < duration; t += Time.deltaTime)
         {
             float normalizedTime = t / duration;

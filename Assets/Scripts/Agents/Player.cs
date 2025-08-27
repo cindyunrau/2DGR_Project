@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     public GameManager gameManager;
     public Spotlight_Control spotlight;
-    public FadeInUI escapeText;
+
     
     //public CapsuleCollider2D collider;
 
@@ -93,10 +93,7 @@ public class Player : MonoBehaviour
             gameManager.UseFuel();
             // Add Fuel Functionality
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            escapeText.gameObject.SetActive(true);
-        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)

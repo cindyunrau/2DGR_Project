@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public Player player;
     public GameObject gameOverScreen;
+    public FadeInUI escapeText;
+    public FadeInUI pauseText;
+    private float textDuration = 2f;
 
     // Mangaged Resources
     private int health;
@@ -28,6 +31,37 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         updateDebug();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            escapeText.gameObject.SetActive(true);
+            StartCoroutine(FadeOut(escapeText,2f));
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            pauseText.gameObject.SetActive(true);
+            StartCoroutine(Pause());
+        }
+        else if (!Input.GetKey(KeyCode.Tab))
+        {
+            Time.timeScale = 1;
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            StartCoroutine(FadeOut(pauseText,0f));
+            
+        }
+        
+    }
+    IEnumerator Pause()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0;
+    }
+    IEnumerator FadeOut(FadeInUI text,float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        StartCoroutine(text.FadeOut());
     }
 
     private void NewGame()
