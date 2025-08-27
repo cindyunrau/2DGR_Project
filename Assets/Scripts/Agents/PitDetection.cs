@@ -7,13 +7,12 @@ public class PitDetection : MonoBehaviour
 
     public GameObject parent;
     public SpriteRenderer sprite;
+    private GameManager gm;
 
     private void Start()
     {
         sprite = parent.GetComponent<SpriteRenderer>();
-        //Color tmp = sprite.color;
-        //tmp.a = 1.0f;
-        //sprite.color = tmp;
+        gm = FindAnyObjectByType<GameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +23,11 @@ public class PitDetection : MonoBehaviour
             {
                 StartCoroutine(FadeOut());          
                 parent.GetComponent<CircleCollider2D>().enabled = false;
+            }
+
+            if(parent.tag == "Player")
+            {
+                gm.KillPlayer();
             }
             
         }

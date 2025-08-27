@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         if (this.health <= 0)
         {
             KillPlayer();
-            Invoke(nameof(GameOver), 1f);
+            //Invoke(nameof(GameOver), 1f);
         }
     }
 
@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
         player.setDead();
         player.gameObject.SetActive(false);
         player.stopAllMovement();
+        Invoke(nameof(GameOver), 1f);
     }
 
     public void AddFuel(int amount)

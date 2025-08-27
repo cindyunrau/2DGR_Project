@@ -107,18 +107,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.tag == "Enemy")
-    //    {
-    //        if (!isImmune)
-    //        {
-    //            health--;
-    //            healthText.text = "Health : " + health;
-    //            StartCoroutine(IFrames(damageCooldown));
-    //        }
-    //    }
-    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -156,6 +144,7 @@ public class Player : MonoBehaviour
         // Allows player to dash through
         GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
         //GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Pit");
 
 
         // Dash
@@ -169,6 +158,9 @@ public class Player : MonoBehaviour
         int layerBitmask = 1 << LayerMask.NameToLayer("Enemy");
         GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
         //GetComponent<CircleCollider2D>().excludeLayers &= ~layerBitmask;
+
+        layerBitmask = 1 << LayerMask.NameToLayer("Pit");
+        GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
 
         // Dash cooldown
         yield return new WaitForSeconds(dashCooldown);
