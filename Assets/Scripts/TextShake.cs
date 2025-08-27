@@ -25,7 +25,8 @@ public class TextShake : MonoBehaviour
 
     void OnEnable()
     {
-        TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
+        StartCoroutine(AnimateVertexColors());
+        //TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
     }
 
     //void OnDisable()
@@ -40,11 +41,11 @@ public class TextShake : MonoBehaviour
     }
 
 
-    void ON_TEXT_CHANGED(Object obj)
-    {
-        if (obj == m_TextComponent)
-            hasTextChanged = true;
-    }
+    //void ON_TEXT_CHANGED(Object obj)
+    //{
+    //    if (obj == m_TextComponent)
+    //        hasTextChanged = true;
+    //}
 
     IEnumerator AnimateVertexColors()
     {
@@ -68,12 +69,12 @@ public class TextShake : MonoBehaviour
 
         while (true)
         {
-            if (hasTextChanged)
-            {
-                cachedMeshInfo = textInfo.CopyMeshInfoVertexData();
+            //if (hasTextChanged)
+            //{
+            //    cachedMeshInfo = textInfo.CopyMeshInfoVertexData();
 
-                hasTextChanged = false;
-            }
+            //    hasTextChanged = false;
+            //}
 
             int characterCount = textInfo.characterCount;
 
