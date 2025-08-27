@@ -28,10 +28,10 @@ public class TextShake : MonoBehaviour
         TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
     }
 
-    void OnDisable()
-    {
-        TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
-    }
+    //void OnDisable()
+    //{
+    //    TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
+    //}
 
 
     void Start()

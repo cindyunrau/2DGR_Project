@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         player.setDead();
         player.gameObject.SetActive(false);
         player.stopAllMovement();
-        Invoke(nameof(GameOver), 1f);
+        Invoke(nameof(GameOver), 0.01f);
     }
 
     public void AddFuel(int amount)
