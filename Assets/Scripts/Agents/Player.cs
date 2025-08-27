@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     private Vector2 movement;
 
+
     [Header("Dash Variables")]
     public bool dashPressed = false;
     public bool canDash = true;
@@ -52,7 +53,13 @@ public class Player : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             movement = Vector2.ClampMagnitude(movement, 1);
-            rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
+            
+            //rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
+            if(movement != Vector2.zero)
+            {
+                rb.AddForce(movement * moveSpeed * Time.fixedDeltaTime);
+            }
+            
 
             if (dashPressed)
             {

@@ -20,22 +20,25 @@ public class GameManager : MonoBehaviour
     // Debug Objects
     public TMP_Text debugText;
 
-    public void StartGame()
+    private void Start()
     {
-        SceneManager.LoadScene("DungeonLevel");
         NewGame();
+    }
+
+    private void Update()
+    {
+        updateDebug();
     }
 
     private void NewGame()
     {
         print("NewGame");
-        StopAllCoroutines();
+        //StopAllCoroutines();
 
         SetHealth(maxHealth);
         inventory.Add("fuel", 0);
         inventory.Add("ammo", 0);
 
-        updateDebug();
 
         gameOverScreen.SetActive(false);
         player.gameObject.SetActive(true);
@@ -50,13 +53,12 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         print("GameOver");
-        player.setDead();
         player.gameObject.SetActive(false);
         player.stopAllMovement();
 
         gameOverScreen.SetActive(true);
 
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine(PlayAgain());
     }
 
@@ -98,11 +100,10 @@ public class GameManager : MonoBehaviour
     {
         print("DamagePlayer");
         SetHealth(this.health - damage);
-        debugText.text = "Health : " + getHealth();
 
         if (this.health <= 0)
         {
-            KillPlayer();
+            //KillPlayer();
             //Invoke(nameof(GameOver), 1f);
         }
     }
@@ -118,7 +119,6 @@ public class GameManager : MonoBehaviour
     public void AddFuel(int amount)
     {
         inventory["fuel"] += amount;
-        updateDebug();
 
     }
 
@@ -128,7 +128,6 @@ public class GameManager : MonoBehaviour
         if (inventory["fuel"] > 0)
         {
             inventory["fuel"] -= 1;
-            updateDebug();
             return true;
         }
         return false;
@@ -137,7 +136,6 @@ public class GameManager : MonoBehaviour
     public void AddAmmo(int amount)
     {
         inventory["ammo"] += amount;
-        updateDebug();
     }
 
     // Returns true if successful
@@ -146,7 +144,6 @@ public class GameManager : MonoBehaviour
         if (inventory["ammo"] > 0)
         {
             inventory["ammo"] -= 1;
-            updateDebug();
             return true;
         }
         return false;
