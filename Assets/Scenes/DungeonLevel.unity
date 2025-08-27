@@ -23403,6 +23403,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1819207024150603822, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1897437485702192472, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
       propertyPath: escapeText
       value: 
@@ -23411,6 +23415,22 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1665599599}
+    - target: {fileID: 2849536778025691316, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849536778025691316, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+      propertyPath: m_BlendStyleIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849536778025691316, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849536778025691316, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[7]
+      value: -2011620539
+      objectReference: {fileID: 0}
     - target: {fileID: 6118008731613212978, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -27584,7 +27604,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2380403141796886984, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_Name
-      value: Global_Light (1)
+      value: WallsLight
       objectReference: {fileID: 0}
     - target: {fileID: 2380403141796886984, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_IsActive
@@ -27608,7 +27628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_Intensity
-      value: 6.74
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_LightType
@@ -27624,11 +27644,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: 0
+      value: -2011620539
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
@@ -27648,15 +27668,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[5]
-      value: 1284810719
+      value: -591808405
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[6]
-      value: 1284810719
+      value: 920673583
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[7]
-      value: 1284810719
+      value: -717885601
       objectReference: {fileID: 0}
     - target: {fileID: 4183265701302842260, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_RootOrder
