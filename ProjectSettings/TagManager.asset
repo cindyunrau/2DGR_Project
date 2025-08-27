@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Fuel
   - Ammo
+  - Pit
+  - PitDetector
   layers:
   - Default
   - TransparentFX
@@ -18,8 +20,8 @@ TagManager:
   - Floor
   - Wall
   - Foreground
-  - 
-  - 
+  - Pit
+  - Player
   - 
   - 
   - 
