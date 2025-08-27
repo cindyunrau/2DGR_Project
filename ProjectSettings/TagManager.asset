@@ -7,8 +7,7 @@ TagManager:
   - Enemy
   - Fuel
   - Ammo
-  - Pit
-  - PitDetector
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -20,9 +19,9 @@ TagManager:
   - Floor
   - Wall
   - Foreground
-  - Pit
-  - Player
-  - Weapon
+  - 
+  - 
+  - 
   - 
   - 
   - 
