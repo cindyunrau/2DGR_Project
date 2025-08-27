@@ -397,6 +397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 2585770976633530229, guid: ac3f77130a2a65948b1cb40dad2f52ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -477,7 +481,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.965589, y: 2.9609566}
+  m_Size: {x: 13.76559, y: 2.460957}
   m_EdgeRadius: 0
 --- !u!1 &338272857
 GameObject:
@@ -554,7 +558,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9904985, y: 1.9846734}
+  m_Size: {x: 1.790499, y: 1.484673}
   m_EdgeRadius: 0
 --- !u!1 &434580242
 GameObject:
@@ -8599,7 +8603,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9590511, y: 2.0206852}
+  m_Size: {x: 3.759051, y: 1.520685}
   m_EdgeRadius: 0
 --- !u!1 &461137698
 GameObject:
@@ -8676,7 +8680,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9904985, y: 1.9846734}
+  m_Size: {x: 1.790499, y: 1.484673}
   m_EdgeRadius: 0
 --- !u!1001 &466814817
 PrefabInstance:
@@ -10645,7 +10649,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9882774, y: 3.9377012}
+  m_Size: {x: 1.788277, y: 3.437701}
   m_EdgeRadius: 0
 --- !u!1 &930806399
 GameObject:
@@ -20430,7 +20434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380403141796886984, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4183265701302842260, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_RootOrder
@@ -20559,7 +20563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8114292153744235022, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20652,7 +20656,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9904985, y: 1.9846734}
+  m_Size: {x: 1.790499, y: 1.484673}
   m_EdgeRadius: 0
 --- !u!1 &1277522044
 GameObject:
@@ -20729,7 +20733,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.991167, y: 2.984539}
+  m_Size: {x: 3.791167, y: 2.484539}
   m_EdgeRadius: 0
 --- !u!1 &1330810053
 GameObject:
@@ -20960,7 +20964,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9904985, y: 1.9846734}
+  m_Size: {x: 1.790499, y: 1.484673}
   m_EdgeRadius: 0
 --- !u!1 &1391699889
 GameObject:
@@ -21037,7 +21041,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.460497, y: 2.4691505}
+  m_Size: {x: 13.2605, y: 1.969151}
   m_EdgeRadius: 0
 --- !u!1 &1482786440
 GameObject:
@@ -21114,7 +21118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0035648, y: 4.9881945}
+  m_Size: {x: 0.803565, y: 4.488194}
   m_EdgeRadius: 0
 --- !u!114 &1665599599 stripped
 MonoBehaviour:
@@ -22313,7 +22317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverrideArea: 1
-  m_Area: 1
+  m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
 --- !u!1 &1729579818
@@ -22391,7 +22395,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9904985, y: 3.772869}
+  m_Size: {x: 1.790499, y: 3.272869}
   m_EdgeRadius: 0
 --- !u!1001 &1809684948
 PrefabInstance:
@@ -22529,7 +22533,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9904985, y: 3.772869}
+  m_Size: {x: 1.790499, y: 3.272869}
   m_EdgeRadius: 0
 --- !u!1001 &2076061056
 PrefabInstance:
@@ -22687,7 +22691,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9800892, y: 3.0365171}
+  m_Size: {x: 3.780089, y: 2.536517}
   m_EdgeRadius: 0
 --- !u!1 &2143646064
 GameObject:

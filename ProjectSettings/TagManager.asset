@@ -8,6 +8,7 @@ TagManager:
   - Fuel
   - Ammo
   - Pit
+  - PitDetector
   layers:
   - Default
   - TransparentFX

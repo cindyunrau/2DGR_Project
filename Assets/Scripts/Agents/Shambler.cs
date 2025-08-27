@@ -32,4 +32,5 @@ public class Shambler : Enemy
             //transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
         }
     }
+
 }
