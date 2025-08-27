@@ -11,9 +11,9 @@ public class PitDetection : MonoBehaviour
     private void Start()
     {
         sprite = parent.GetComponent<SpriteRenderer>();
-        Color tmp = sprite.color;
-        tmp.a = 1.0f;
-        sprite.color = tmp;
+        //Color tmp = sprite.color;
+        //tmp.a = 1.0f;
+        //sprite.color = tmp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,9 +22,7 @@ public class PitDetection : MonoBehaviour
         {
             if (parent.tag == "Enemy")
             {
-                //sprite.enabled = false;
-                StartCoroutine(FadeOut());
-                
+                StartCoroutine(FadeOut());          
                 parent.GetComponent<CircleCollider2D>().enabled = false;
             }
             
@@ -38,7 +36,6 @@ public class PitDetection : MonoBehaviour
         {
             if (parent.tag == "Enemy")
             {
-                //sprite.enabled = true;
                 StartCoroutine(FadeIn());
                 parent.GetComponent<CircleCollider2D>().enabled = true;
             }
