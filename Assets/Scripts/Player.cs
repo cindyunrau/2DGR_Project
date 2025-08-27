@@ -86,10 +86,10 @@ public class Player : MonoBehaviour
             // Add Fuel Functionality
         }
     }
-    
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             if (!isImmune)
             {
@@ -97,18 +97,28 @@ public class Player : MonoBehaviour
 
                 float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
 
-                spotlight.setShrinking((spotlight.outerRange*percentHealth), (spotlight.innerRange*percentHealth));
-                
+                spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
+
 
                 if (!dead)
                 {
                     StartCoroutine(IFrames(damageCooldown));
                 }
-                
             }
         }
-
     }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Enemy")
+    //    {
+    //        if (!isImmune)
+    //        {
+    //            health--;
+    //            healthText.text = "Health : " + health;
+    //            StartCoroutine(IFrames(damageCooldown));
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -144,8 +154,8 @@ public class Player : MonoBehaviour
     {
         // Ignore collision with enemies
         // Allows player to dash through
-        //GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
-        GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        //GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
 
 
         // Dash
@@ -157,8 +167,8 @@ public class Player : MonoBehaviour
 
         // Re-enables collisions with enemies
         int layerBitmask = 1 << LayerMask.NameToLayer("Enemy");
-        //GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
-        GetComponent<CircleCollider2D>().excludeLayers &= ~layerBitmask;
+        GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
+        //GetComponent<CircleCollider2D>().excludeLayers &= ~layerBitmask;
 
         // Dash cooldown
         yield return new WaitForSeconds(dashCooldown);
