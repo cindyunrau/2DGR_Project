@@ -9,15 +9,15 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    public Transform jumpCheck;
-    public GameObject sparkle;
+    public GameManager gameManager;
+    public Spotlight_Control spotlight;
+    
     //public CapsuleCollider2D collider;
 
     [Header("Health Variables")]
-    public int health = 5;
     public float damageCooldown = 0.5f;
     public bool isImmune = false;
-    public TMP_Text healthText;
+
 
     [Header("Movement Variables")]
     public float moveSpeed;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public float dashTime;
     public float dashCooldown;
 
-    bool dead = false;
+    private bool dead = false;
 
     void Start()
     {
@@ -42,11 +42,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(health <= 0)
-        {
-            Kill();
-        }
-
         if (!dead)
         {
             if (isDashing)
@@ -79,6 +74,17 @@ public class Player : MonoBehaviour
         {
             dashPressed = true;
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            gameManager.UseAmmo();
+            // Add Ammo Functionality
+        }
+        // Trigger temporary
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            gameManager.UseFuel();
+            // Add Fuel Functionality
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -87,38 +93,46 @@ public class Player : MonoBehaviour
         {
             if (!isImmune)
             {
-                health--;
-                healthText.text = "Health : " + health;
-                StartCoroutine(IFrames(damageCooldown));
+                gameManager.DamagePlayer(1);
+
+                float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
+
+                spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
+
+
+                if (!dead)
+                {
+                    StartCoroutine(IFrames(damageCooldown));
+                }
             }
         }
     }
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.tag == "Enemy")
-    //    {
-    //        if (!isImmune)
-    //        {
-    //            health--;
-    //            healthText.text = "Health : " + health;
-    //            StartCoroutine(IFrames(damageCooldown));
-    //        }
-    //    }
-    //}
 
-    IEnumerator Reload(float delayTime)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        yield return new WaitForSeconds(delayTime);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (other.gameObject.tag == "Ammo")
+        {
+            gameManager.AddAmmo(other.gameObject.GetComponent<Pickup>().getNum());
+            other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.tag == "Fuel")
+        {
+            print("Fuel");
+            gameManager.AddFuel(1);
+            other.gameObject.SetActive(false);
+        }
     }
 
-    public void Kill()
+    public void stopAllMovement()
     {
-        StartCoroutine(Reload(3));
+        rb.velocity = Vector2.zero;
+    }
+
+    public void setDead()
+    {
         isImmune = true;
         dead = true;
     }
-
     public bool isDead()
     {
         return dead;
@@ -128,8 +142,8 @@ public class Player : MonoBehaviour
     {
         // Ignore collision with enemies
         // Allows player to dash through
-        //GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
-        GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
+        //GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
 
 
         // Dash
@@ -141,8 +155,8 @@ public class Player : MonoBehaviour
 
         // Re-enables collisions with enemies
         int layerBitmask = 1 << LayerMask.NameToLayer("Enemy");
-        //GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
-        GetComponent<CircleCollider2D>().excludeLayers &= ~layerBitmask;
+        GetComponent<CapsuleCollider2D>().excludeLayers &= ~layerBitmask;
+        //GetComponent<CircleCollider2D>().excludeLayers &= ~layerBitmask;
 
         // Dash cooldown
         yield return new WaitForSeconds(dashCooldown);

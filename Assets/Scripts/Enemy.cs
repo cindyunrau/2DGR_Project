@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         target = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
