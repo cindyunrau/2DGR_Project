@@ -27,8 +27,8 @@ public class PitDetection : MonoBehaviour
         {
             if (parent.tag == "Enemy")
             {
-                StartCoroutine(FadeOut());          
                 parent.GetComponent<CircleCollider2D>().enabled = false;
+                StartCoroutine(FadeOut());                     
             }
 
             if(parent.tag == "Player")

@@ -20,7 +20,13 @@ public class RandomSpawner : MonoBehaviour
             int randSP = Random.Range(0, spawnPointList.Length);
             int randEnemy = Random.Range(0, enemyList.Length);
 
-            SpawnEnemy(spawnPointList[randSP], enemyList[randEnemy]);
+            // Check if selected spawnPoint is outside of player's vision and active
+            if (Vector2.Distance(spawnPointList[randSP].position, player.transform.position) 
+                                    > player.GetComponent<Player>().spotlight.innerRange + 2.5
+                                    && spawnPointList[randSP].gameObject.activeSelf)
+            {
+                SpawnEnemy(spawnPointList[randSP], enemyList[randEnemy]);
+            }
         }
 
         spawnTimer -= Time.deltaTime;
