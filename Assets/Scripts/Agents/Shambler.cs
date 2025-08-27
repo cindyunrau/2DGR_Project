@@ -14,6 +14,7 @@ public class Shambler : Enemy
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.speed = moveSpeed;
     }
 
     private void FixedUpdate()

@@ -7,8 +7,9 @@ public class Enemy : MonoBehaviour
 {
 
     public GameObject player;
-    public float distance;
     public Transform target;
+    public float distance;
+    public float moveSpeed;
     
     void Start()
     {
