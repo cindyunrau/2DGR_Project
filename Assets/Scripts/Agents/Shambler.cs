@@ -9,8 +9,13 @@ public class Shambler : Enemy
 {
     private NavMeshAgent agent;
 
+    //Health Variables
+    public int maxHealth;
+    private int health;
+
     private void Start()
     {
+        setHealth(maxHealth);
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -33,4 +38,23 @@ public class Shambler : Enemy
         }
     }
 
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth(int hp)
+    {
+        health = hp;
+    }
+
+    public void takeDamage(int dmg)
+    {
+        setHealth(health-dmg);
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
