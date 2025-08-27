@@ -2769,6 +2769,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0.13000011, y: 0}
   m_SizeDelta: {x: 7.71, y: 4.27}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &659569443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6732031849697949981, guid: 74c62e3adbc187a4bafc71dfb43c67f4, type: 3}
+  m_PrefabInstance: {fileID: 2171354259804738596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &659569445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659569443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da8307dbebbe7e641855967afd02c2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AngleMultiplier: 0.5
+  SpeedMultiplier: 0.7
+  CurveScale: 3
 --- !u!1 &667355064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,6 +3406,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6583266587608584609, guid: 74c62e3adbc187a4bafc71dfb43c67f4, type: 3}
+      propertyPath: m_characterSpacing
+      value: 7.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6596288637029364414, guid: 74c62e3adbc187a4bafc71dfb43c67f4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3397,5 +3421,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6732031849697949981, guid: 74c62e3adbc187a4bafc71dfb43c67f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 659569445}
   m_SourcePrefab: {fileID: 100100000, guid: 74c62e3adbc187a4bafc71dfb43c67f4, type: 3}
