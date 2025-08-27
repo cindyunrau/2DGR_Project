@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         print("NewGame");
-        //StopAllCoroutines();
+        StopAllCoroutines();
 
         SetHealth(maxHealth);
         inventory.Add("fuel", 0);
@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
 
         gameOverScreen.SetActive(true);
 
-        //StopAllCoroutines();
         StartCoroutine(PlayAgain());
     }
 
@@ -103,8 +102,7 @@ public class GameManager : MonoBehaviour
 
         if (this.health <= 0)
         {
-            //KillPlayer();
-            //Invoke(nameof(GameOver), 1f);
+            KillPlayer();
         }
     }
 
