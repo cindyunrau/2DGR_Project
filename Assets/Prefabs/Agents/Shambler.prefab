@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shambler
       objectReference: {fileID: 0}
+    - target: {fileID: 5647140182259110395, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7386938902374574214, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: moveSpeed
       value: 2

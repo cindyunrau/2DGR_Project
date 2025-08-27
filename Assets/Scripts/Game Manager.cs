@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
     // Debug Objects
     public TMP_Text debugText;
 
+    public void Start()
+    {
+        NewGame();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("DungeonLevel");
@@ -51,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         print("GameOver");
         player.setDead();
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
         player.stopAllMovement();
 
         gameOverScreen.SetActive(true);
@@ -110,7 +115,7 @@ public class GameManager : MonoBehaviour
     public void KillPlayer()
     {
         player.setDead();
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
         player.stopAllMovement();
         Invoke(nameof(GameOver), 1f);
     }

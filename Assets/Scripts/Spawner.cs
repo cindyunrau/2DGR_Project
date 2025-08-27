@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     public float spawnRadius = 5f;
     public GameObject player;
 
-    void Update()
+    void FixedUpdate()
     {
         foreach (Transform childTs in GetComponentInChildren<Transform>())
         {
@@ -29,6 +29,7 @@ public class Spawner : MonoBehaviour
     }
     void SpawnEntity(SpawnPoint spawnPoint)
     {
-        Enemy entity = Instantiate(spawnPoint.GetNextEntity(), spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Enemy>();
+        //Enemy entity = Instantiate(spawnPoint.GetNextEntity(), spawnPoint.transform.position, spawnPoint.transform.rotation).GetComponent<Enemy>();
+        Enemy entity = Instantiate(spawnPoint.GetNextEntity(), spawnPoint.transform.position, spawnPoint.transform.rotation);
     }
 }
