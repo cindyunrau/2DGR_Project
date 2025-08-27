@@ -73,7 +73,6 @@ public class PitDetection : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        Debug.Log("Hi");
         float alphaVal = sprite.color.a;
         Color tmp = sprite.color;
 
