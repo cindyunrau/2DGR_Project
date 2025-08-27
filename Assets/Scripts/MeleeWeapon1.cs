@@ -69,9 +69,12 @@ public class MeleeWeapon1 : MonoBehaviour
                     ghost.takeDamage(damage);
                 }
 
-                Vector2 difference = (enemy.transform.position - player.transform.position).normalized * knockbackFactor;
-                enemy.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockbackEnd(enemy));
+                if (collision)
+                {
+                    Vector2 difference = (enemy.transform.position - player.transform.position).normalized * knockbackFactor;
+                    enemy.AddForce(difference, ForceMode2D.Impulse);
+                    StartCoroutine(KnockbackEnd(enemy));
+                }
 
 
                 anim.SetBool("swinging", false);
@@ -84,11 +87,15 @@ public class MeleeWeapon1 : MonoBehaviour
     }
     private IEnumerator KnockbackEnd(Rigidbody2D enemy)
     {
-        if (enemy)
-        {
+        //if (enemy)
+        //{
             yield return new WaitForSeconds(knockbackTime);
             print("enemyvel");
-            enemy.velocity = Vector2.zero;
-        }
+            // Second check
+            if (enemy)
+            {
+                enemy.velocity = Vector2.zero;
+            }
+        //}
     }
 }

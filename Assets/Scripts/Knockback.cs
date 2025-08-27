@@ -35,11 +35,14 @@ public class Knockback : MonoBehaviour
     }
     private IEnumerator KnockbackEnd(Rigidbody2D enemy)
     {
-        if (enemy)
-        {
+        //if (enemy)
+        //{
             yield return new WaitForSeconds(knockbackTime);
             print("enemyvel");
-            enemy.velocity = Vector2.zero;
-        }
+            if (enemy)
+            {
+                enemy.velocity = Vector2.zero;
+            }
+        //}
     }
 }
