@@ -19925,6 +19925,18 @@ PrefabInstance:
       propertyPath: m_NormalMapQuality
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7694446502706493294, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694446502706493294, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[6]
+      value: -2011620539
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694446502706493294, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[7]
+      value: 1284810719
+      objectReference: {fileID: 0}
     - target: {fileID: 8114292153744235022, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_IsActive
       value: 1
