@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour
     public float distance;
     public float moveSpeed;
     
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-    }
+    //void Start()
+    //{
+    //    player = GameObject.FindWithTag("Player");
+    //}
 
     private void Awake()
     {
