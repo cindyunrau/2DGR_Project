@@ -15,14 +15,14 @@ public class GameManager : MonoBehaviour
     private int maxHealth = 3;
 
     private int time;
-    private Dictionary<string, int> inventory =
-    new Dictionary<string, int>();
+    private Dictionary<string, int> inventory = new Dictionary<string, int>();
 
     // Debug Objects
     public TMP_Text debugText;
 
-    private void Start()
+    public void StartGame()
     {
+        SceneManager.LoadScene("DungeonLevel");
         NewGame();
     }
 
