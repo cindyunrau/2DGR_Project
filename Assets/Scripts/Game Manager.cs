@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         print("GameOver");
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
         player.stopAllMovement();
 
         gameOverScreen.SetActive(true);
@@ -143,7 +143,9 @@ public class GameManager : MonoBehaviour
     public void KillPlayer()
     {
         player.setDead();
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<CapsuleCollider2D>().enabled = false;
         player.stopAllMovement();
         Invoke(nameof(GameOver), 0.01f);
     }

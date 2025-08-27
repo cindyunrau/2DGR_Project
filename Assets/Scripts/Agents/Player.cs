@@ -155,13 +155,11 @@ public class Player : MonoBehaviour
         ////GetComponent<CircleCollider2D>().excludeLayers = LayerMask.GetMask("Enemy");
         //GetComponent<CapsuleCollider2D>().excludeLayers = LayerMask.GetMask("Pit");
 
-        StartCoroutine(IFrames(dashTime));
-
-
         // Dash
         canDash = false;
         isDashing = true;
         rb.velocity = new Vector2(rb.velocity.x * dashStrength, rb.velocity.y * dashStrength);
+        StartCoroutine(IFrames(dashTime));
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
 

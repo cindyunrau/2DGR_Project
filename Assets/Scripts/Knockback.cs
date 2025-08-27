@@ -12,6 +12,7 @@ public class Knockback : MonoBehaviour
     private void Start()
     {
         rb = player.GetComponent<Rigidbody2D>();
+        Debug.Log(player.isImmune);
     }
     
 
@@ -20,8 +21,8 @@ public class Knockback : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
-            
-            if (enemy && !player.isDead())
+
+            if (enemy && !player.isDead() && !player.isDashing)
             {
                 Vector2 difference = (enemy.transform.position - transform.position).normalized * thrust;
                 enemy.AddForce(difference, ForceMode2D.Impulse);
