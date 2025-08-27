@@ -416,9 +416,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -591808405
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -2011620539
+  m_SortingLayer: 6
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8456,7 +8456,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2011620539
   m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -20004,6 +20004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global_Light
       objectReference: {fileID: 0}
+    - target: {fileID: 2380403141796886984, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4183265701302842260, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -20071,7 +20075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790222941301616665, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1790222941301616665, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_SortingOrder
@@ -20079,7 +20083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790222941301616665, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_SortingLayerID
-      value: -447898573
+      value: -2011620539
       objectReference: {fileID: 0}
     - target: {fileID: 4084415588397942623, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
       propertyPath: m_Name
@@ -20129,6 +20133,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8114292153744235022, guid: b792e8056c6156545b9b2c3d9b3ca0dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20157,6 +20165,7 @@ GameObject:
   - component: {fileID: 1330810055}
   - component: {fileID: 1330810054}
   - component: {fileID: 1330810057}
+  - component: {fileID: 1330810058}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20282,6 +20291,22 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1330810058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330810053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e18e28e7b43e5b47bc818df0518b85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1181681720}
+  offsetx: 0
+  offsety: 0
+  offsetz: 0
 --- !u!114 &1665599599 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1844409987539447098, guid: c63f4bfea0952134a8523d85888d240b, type: 3}
