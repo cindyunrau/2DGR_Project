@@ -11,7 +11,10 @@ public class MeleeWeapon1 : MonoBehaviour
 
     public int swingFrames = 45;
 
-    public float knockbackFactor = 20f;
+    public float knockbackFactor;
+    public float knockbackTime;
+
+    public int damage;
 
     private int frameCounter;
 
@@ -49,25 +52,43 @@ public class MeleeWeapon1 : MonoBehaviour
         
     }
 
-    /* Work In Progress
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
+
             if (swinging)
             {
-                Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                if (collision.TryGetComponent<Shambler>(out Shambler shambler))
+                {
+                    shambler.takeDamage(damage);
+                }
+                else if (collision.TryGetComponent<Ghost>(out Ghost ghost))
+                {
+                    ghost.takeDamage(damage);
+                }
 
-                Vector2 pushbackDirection = (collision.transform.position - player.transform.position).normalized;
+                Vector2 difference = (enemy.transform.position - player.transform.position).normalized * knockbackFactor;
+                enemy.AddForce(difference, ForceMode2D.Impulse);
+                StartCoroutine(KnockbackEnd(enemy));
 
-                rb.AddForce((pushbackDirection * knockbackFactor),ForceMode2D.Impulse);
 
                 anim.SetBool("swinging", false);
                 frameCounter = 0;
                 swinging = false;
-            }
-            
-        }
 
-    }*/
+            }
+
+        }
+    }
+    private IEnumerator KnockbackEnd(Rigidbody2D enemy)
+    {
+        if (enemy)
+        {
+            yield return new WaitForSeconds(knockbackTime);
+            print("enemyvel");
+            enemy.velocity = Vector2.zero;
+        }
+    }
 }
