@@ -9,7 +9,7 @@ public class RandomSpawner : MonoBehaviour
     public Transform[] spawnPointList;
     public Enemy[] enemyList;
     public float spawnTimer;
-    public float frequency = 0.1f;
+    public float frequency = 2f;
 
     private void FixedUpdate()
     {
