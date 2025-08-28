@@ -10,6 +10,7 @@ public class RandomSpawner : MonoBehaviour
     public Enemy[] enemyList;
     public float spawnTimer;
     public float frequency = 2f;
+    public float minFreq = 0.2f;
 
     private void FixedUpdate()
     {

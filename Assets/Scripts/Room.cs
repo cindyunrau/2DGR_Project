@@ -6,6 +6,12 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool roomEntered = false;
+    public RandomSpawner spawner;
+
+    private void Start()
+    {
+        spawner = FindAnyObjectByType<RandomSpawner>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +20,14 @@ public class Room : MonoBehaviour
             foreach(Transform spawnPoint in gameObject.transform)
             {
                 spawnPoint.gameObject.SetActive(true);
+                if(spawner.frequency > spawner.minFreq) 
+                {
+                    spawner.frequency -= 0.05f;
+                }
+                
             }
+
+            roomEntered = true;
         }
     }
 }
