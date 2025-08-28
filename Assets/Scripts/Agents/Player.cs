@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     public GameManager gameManager;
     public Spotlight_Control spotlight;
-    public Spotlight_Control blueTint;
+    public Spotlight_Control foregroundLight;
 
     
     //public CapsuleCollider2D collider;
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
                 float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
 
                 spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
-                blueTint.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
+                foregroundLight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
 
 
                 if (!dead)
