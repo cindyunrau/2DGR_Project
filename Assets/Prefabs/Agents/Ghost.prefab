@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: m_Color.a
-      value: 0.54509807
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: m_Color.b
@@ -127,3 +127,5 @@ MonoBehaviour:
   distance: 0
   moveSpeed: 2
   maxHealth: 0
+  normalSpeed: 2
+  wallSpeed: 1

@@ -10,6 +10,7 @@ TagManager:
   - Pit
   - PitDetector
   - Spawner
+  - Wall
   layers:
   - Default
   - TransparentFX
