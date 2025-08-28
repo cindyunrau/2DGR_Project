@@ -11,6 +11,7 @@ TagManager:
   - PitDetector
   - Spawner
   - Wall
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -62,6 +63,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 920673583
+    locked: 0
+  - name: Walls
+    uniqueID: 3972333915
     locked: 0
   - name: Foreground
     uniqueID: 2283346757
