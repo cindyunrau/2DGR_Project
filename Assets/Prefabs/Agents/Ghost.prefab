@@ -65,6 +65,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: m_Color.a
+      value: 0.54509807
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: m_Color.b
       value: 0.8075045
       objectReference: {fileID: 0}
@@ -75,6 +79,18 @@ PrefabInstance:
     - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: m_Color.r
       value: 0.13705944
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 920673583
       objectReference: {fileID: 0}
     - target: {fileID: 8763743936626796588, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: parent
@@ -110,3 +126,4 @@ MonoBehaviour:
   target: {fileID: 0}
   distance: 0
   moveSpeed: 2
+  maxHealth: 0
