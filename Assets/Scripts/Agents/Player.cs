@@ -158,7 +158,9 @@ public class Player : MonoBehaviour
         // Dash
         canDash = false;
         isDashing = true;
-        rb.velocity = new Vector2(rb.velocity.x * dashStrength, rb.velocity.y * dashStrength);
+        //rb.velocity = new Vector2(rb.velocity.x * dashStrength, rb.velocity.y * dashStrength);
+        Vector2 dashForce = new Vector2(movement.x * dashStrength, movement.y * dashStrength);
+        rb.AddForce(dashForce, ForceMode2D.Impulse);
         StartCoroutine(IFrames(dashTime));
         yield return new WaitForSeconds(dashTime);
         isDashing = false;

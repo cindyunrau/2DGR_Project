@@ -90,3 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0188b5f43ca334e99699d39c0d2129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomEntered: 0
+  spawner: {fileID: 0}

@@ -23,7 +23,7 @@ public class RandomSpawner : MonoBehaviour
 
             // Check if selected spawnPoint is outside of player's vision and active
             if (Vector2.Distance(spawnPointList[randSP].position, player.transform.position) 
-                                    > player.GetComponent<Player>().spotlight.innerRange + 2.5
+                                    > player.GetComponent<Player>().spotlight.innerRange + 3
                                     && spawnPointList[randSP].gameObject.activeSelf)
             {
                 SpawnEnemy(spawnPointList[randSP], enemyList[randEnemy]);
