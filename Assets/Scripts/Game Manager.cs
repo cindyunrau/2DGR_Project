@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
