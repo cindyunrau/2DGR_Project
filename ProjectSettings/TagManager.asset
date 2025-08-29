@@ -12,6 +12,8 @@ TagManager:
   - Spawner
   - Wall
   - Door
+  - Shambler
+  - Ghost
   layers:
   - Default
   - TransparentFX

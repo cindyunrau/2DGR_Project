@@ -47,10 +47,15 @@ public class PitDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == "Pit")
         {
-            if (parent.tag == "Enemy")
+            if (parent.tag == "Ghost")
             {
                 StartCoroutine(FadeIn());
                 parent.GetComponent<CircleCollider2D>().enabled = true;
+            }
+            else if(parent.tag == "Shambler")
+            {
+                StartCoroutine(FadeIn());
+                parent.GetComponent<CapsuleCollider2D>().enabled = true;
             }
 
         }
