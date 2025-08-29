@@ -63,7 +63,7 @@ public class Spear : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
         {
             Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
 
