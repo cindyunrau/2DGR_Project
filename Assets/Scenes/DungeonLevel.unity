@@ -26176,8 +26176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef541e1063e236e4c850dffaf01fdc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  sprite: {fileID: 0}
+  healCooldown: 1
+  healAmount: 1
+  damageCooldown: 1
+  damageAmount: 2
 --- !u!1001 &1155113258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26618,7 +26620,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5223085947337015790, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1086454910547750254, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
     - {fileID: 1744560321854407232, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
