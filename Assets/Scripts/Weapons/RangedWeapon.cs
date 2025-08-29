@@ -33,7 +33,7 @@ public class RangedWeapon : MonoBehaviour
 
     private void MyInput()
     {
-        gameManager.AddAmmo(1);
+        //gameManager.AddAmmo(1);
         if (allowButtonHold)
         {
             shooting = Input.GetKey(KeyCode.Mouse0);
