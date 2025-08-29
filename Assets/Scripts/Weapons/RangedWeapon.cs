@@ -12,7 +12,6 @@ public class RangedWeapon : MonoBehaviour
     private int bulletsShot;
 
     private bool shooting, readyToShoot;
-    //public TrailRenderer bulletTrail;
 
     [Header("References")]
     public Transform attackPoint;
@@ -32,16 +31,6 @@ public class RangedWeapon : MonoBehaviour
         MyInput();
     }
 
-    private void FixedUpdate()
-    {
-        //if (readyToShoot && shooting && gameManager.GetAmmo() > 0)
-        //{
-        //    bulletsShot = bulletsPerTap;
-        //    gameManager.AddAmmo(1);
-        //    Shoot();
-        //}
-    }
-
     private void MyInput()
     {
         gameManager.AddAmmo(1);
@@ -57,7 +46,6 @@ public class RangedWeapon : MonoBehaviour
         if (readyToShoot && shooting && gameManager.GetAmmo() > 0)
         {
             bulletsShot = bulletsPerTap;
-            //gameManager.AddAmmo(1);
             Shoot();
         }
 
@@ -74,7 +62,6 @@ public class RangedWeapon : MonoBehaviour
         Vector3 direction = attackPoint.right + new Vector3(x, y, 0);
 
         // Raycast
-        //RaycastHit2D rayHit = Physics2D.Raycast(attackPoint.position, direction, range, whatIsEnemy);
         LayerMask hittable = whatIsEnemy | whatIsWall;
         RaycastHit2D rayHit = Physics2D.Raycast(attackPoint.position, direction, range, hittable);
         if (rayHit)
@@ -86,9 +73,6 @@ public class RangedWeapon : MonoBehaviour
                 rayHit.collider.GetComponent<Enemy>().takeDamage(damage);
             }
         }
-
-        //TrailRenderer trail = Instantiate(bulletTrail, attackPoint.position, Quaternion.identity);
-        //StartCoroutine(SpawnTrail(trail, rayHit));
 
         var trail = Instantiate(bulletTrail, attackPoint.position, transform.rotation);
 
@@ -118,22 +102,5 @@ public class RangedWeapon : MonoBehaviour
     {
         readyToShoot = true;
     }
-
-    //private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit2D hit)
-    //{
-    //    float time = 0;
-    //    Vector2 startPosition = trail.transform.position;
-
-    //    while(time < 1)
-    //    {
-    //        trail.transform.position = Vector2.Lerp(startPosition, hit.point, time);
-    //        time += Time.deltaTime / trail.time;
-
-    //        yield return null;
-    //    }
-
-    //    trail.transform.position = hit.point;
-    //    Destroy(trail.gameObject, trail.time);
-    //}
 
 }
