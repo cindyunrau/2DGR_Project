@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class ProtectionWard : MonoBehaviour
 {
     private GameManager gm;
+
+    public Spotlight_Control playerSpotlight;
 
     public float healCooldown = 1f;
     public int healAmount = 1;
@@ -39,6 +42,9 @@ public class ProtectionWard : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             if (player.wardHealable) 
             {
+                float percentHealth = (float)gm.getHealth() / (float)gm.getMaxHealth();
+
+                playerSpotlight.setGrowing((playerSpotlight.outerRange * percentHealth), (playerSpotlight.innerRange * percentHealth));
                 gm.HealPlayer(healAmount);
                 player.wardHealable = false;
                 StartCoroutine(healTimer(player, healCooldown));
