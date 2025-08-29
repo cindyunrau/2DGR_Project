@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 2613568596845931351, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5647140182259110395, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -126,6 +130,6 @@ MonoBehaviour:
   target: {fileID: 0}
   distance: 0
   moveSpeed: 2
-  maxHealth: 0
+  maxHealth: 3
   normalSpeed: 2
   wallSpeed: 1
