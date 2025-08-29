@@ -38,8 +38,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        gameManager.AddSword();
-        gameManager.AddSpear();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         //collider = GetComponent<CapsuleCollider2D>();

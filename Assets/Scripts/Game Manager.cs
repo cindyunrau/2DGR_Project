@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
     private float textDuration = 2f;
 
     public GameObject sword;
+    public GameObject swordPickup;
     public GameObject spear;
+    public GameObject spearPickup;
     public GameObject pistol;
+    public GameObject pistolPickup;
     public GameObject shotgun;
+    public GameObject shotgunPickup;
 
     private int numWeapons = 0;
     private string curWeapon;
@@ -219,12 +223,18 @@ public class GameManager : MonoBehaviour
             {
                 case "Spear":
                     spear.SetActive(false);
+                    spearPickup.transform.position = player.transform.position;
+                    spearPickup.SetActive(true);
                     break;
                 case "Pistol":
                     pistol.SetActive(false);
+                    pistolPickup.transform.position = player.transform.position;
+                    pistolPickup.SetActive(true);
                     break;
                 case "Shotgun":
                     shotgun.SetActive(false);
+                    shotgunPickup.transform.position = player.transform.position;
+                    shotgunPickup.SetActive(true);
                     break;
             }
             curWeapon = "Sword";
@@ -271,12 +281,18 @@ public class GameManager : MonoBehaviour
             {
                 case "Sword":
                     sword.SetActive(false);
+                    swordPickup.transform.position = player.transform.position;
+                    swordPickup.SetActive(true);
                     break;
                 case "Pistol":
                     pistol.SetActive(false);
+                    pistolPickup.transform.position = player.transform.position;
+                    pistolPickup.SetActive(true);
                     break;
                 case "Shotgun":
                     shotgun.SetActive(false);
+                    shotgunPickup.transform.position = player.transform.position;
+                    shotgunPickup.SetActive(true);
                     break;
             }
             curWeapon = "Spear";
@@ -322,12 +338,18 @@ public class GameManager : MonoBehaviour
             {
                 case "Sword":
                     sword.SetActive(false);
+                    swordPickup.transform.position = player.transform.position;
+                    swordPickup.SetActive(true);
                     break;
                 case "Spear":
                     spear.SetActive(false);
+                    spearPickup.transform.position = player.transform.position;
+                    spearPickup.SetActive(true);
                     break;
                 case "Shotgun":
                     shotgun.SetActive(false);
+                    shotgunPickup.transform.position = player.transform.position;
+                    shotgunPickup.SetActive(true);
                     break;
             }
             curWeapon = "Pistol";
@@ -372,12 +394,18 @@ public class GameManager : MonoBehaviour
             {
                 case "Sword":
                     sword.SetActive(false);
+                    swordPickup.transform.position = player.transform.position;
+                    swordPickup.SetActive(true);
                     break;
                 case "Pistol":
                     pistol.SetActive(false);
+                    pistolPickup.transform.position = player.transform.position;
+                    pistolPickup.SetActive(true);
                     break;
                 case "Spear":
                     spear.SetActive(false);
+                    spearPickup.transform.position = player.transform.position;
+                    spearPickup.SetActive(true);
                     break;
             }
             curWeapon = "Shotgun";
