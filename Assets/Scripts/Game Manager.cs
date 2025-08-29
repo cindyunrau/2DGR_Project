@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     // Mangaged Resources
     private int health;
-    private int maxHealth = 3;
+    private int maxHealth = 5;
 
     private int time;
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
@@ -130,12 +130,19 @@ public class GameManager : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-        print("DamagePlayer");
         SetHealth(this.health - damage);
 
         if (this.health <= 0)
         {
             KillPlayer();
+        }
+    }
+
+    public void HealPlayer(int healing)
+    {
+        if (this.health < maxHealth)
+        {
+            SetHealth(this.health + healing);
         }
     }
 
