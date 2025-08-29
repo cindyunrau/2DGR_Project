@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6285561503548894629, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: m_Offset.y
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7386938902374574214, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       propertyPath: moveSpeed
@@ -155,6 +155,7 @@ MonoBehaviour:
   moveSpeed: 2
   maxHealth: 3
   health: 0
+  wardDamageable: 1
   normalSpeed: 1.5
   wallSpeed: 0.75
 --- !u!95 &8374247289265104084
