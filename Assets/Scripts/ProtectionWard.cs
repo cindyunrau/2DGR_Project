@@ -8,6 +8,7 @@ public class ProtectionWard : MonoBehaviour
     public SpriteRenderer sprite;
     private GameManager gm;
     private Player player;
+    private Enemy enemy;
 
     private void Start()
     {
@@ -17,15 +18,26 @@ public class ProtectionWard : MonoBehaviour
         {
             player = parent.gameObject.GetComponent<Player>();
         }
+
+        if (parent.tag == "Shambler")
+        {
+            enemy = parent.gameObject.GetComponent<Shambler>();
+        }
+
+        if (parent.tag == "Ghost")
+        {
+            enemy = parent.gameObject.GetComponent<Ghost>();
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ProtectWard")
         {
             if (parent.tag == "Shambler" || parent.tag == "Ghost")
             {
                 // Damage enemies
+                enemy.takeDamage(1);
             }
 
             if (parent.tag == "Player")

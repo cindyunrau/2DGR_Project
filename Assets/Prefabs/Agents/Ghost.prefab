@@ -155,8 +155,8 @@ MonoBehaviour:
   moveSpeed: 2
   maxHealth: 3
   health: 0
-  normalSpeed: 2
-  wallSpeed: 1
+  normalSpeed: 1.5
+  wallSpeed: 0.75
 --- !u!95 &8374247289265104084
 Animator:
   serializedVersion: 5
