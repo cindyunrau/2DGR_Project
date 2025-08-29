@@ -2042,6 +2042,11 @@ Transform:
   m_Father: {fileID: 1746185717}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &258189611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8855228380691919348, guid: 3552e939be10e1d4484c48416a2d7b04, type: 3}
+  m_PrefabInstance: {fileID: 27688706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273088820
 GameObject:
   m_ObjectHideFlags: 0
@@ -11557,19 +11562,19 @@ PrefabInstance:
     - target: {fileID: 1844409987539447098, guid: c63f4bfea0952134a8523d85888d240b, type: 3}
       propertyPath: spearPickup
       value: 
-      objectReference: {fileID: 2249062547917239225, guid: ee3d9b35b61b6c2478c39095e1665a74, type: 3}
+      objectReference: {fileID: 802194411}
     - target: {fileID: 1844409987539447098, guid: c63f4bfea0952134a8523d85888d240b, type: 3}
       propertyPath: swordPickup
       value: 
-      objectReference: {fileID: 5916534610390053362, guid: 3583e490d4e41d544b856bb6791547ac, type: 3}
+      objectReference: {fileID: 1153895422}
     - target: {fileID: 1844409987539447098, guid: c63f4bfea0952134a8523d85888d240b, type: 3}
       propertyPath: pistolPickup
       value: 
-      objectReference: {fileID: 8631807052433798431, guid: 462afb34f6fa2b344bedabff2d221101, type: 3}
+      objectReference: {fileID: 1141479301}
     - target: {fileID: 1844409987539447098, guid: c63f4bfea0952134a8523d85888d240b, type: 3}
       propertyPath: shotgunPickup
       value: 
-      objectReference: {fileID: 8855228380691919348, guid: 3552e939be10e1d4484c48416a2d7b04, type: 3}
+      objectReference: {fileID: 258189611}
     - target: {fileID: 1844409987539447098, guid: c63f4bfea0952134a8523d85888d240b, type: 3}
       propertyPath: gameOverScreen
       value: 
@@ -15674,6 +15679,11 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 2, y: -25, z: 0}
     m_Extent: {x: 9, y: 4, z: 0}
+--- !u!1 &802194411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2249062547917239225, guid: ee3d9b35b61b6c2478c39095e1665a74, type: 3}
+  m_PrefabInstance: {fileID: 815987613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &815987613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26462,6 +26472,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   sprite: {fileID: 0}
+--- !u!1 &1141479301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6752486075286655925, guid: 462afb34f6fa2b344bedabff2d221101, type: 3}
+  m_PrefabInstance: {fileID: 190507095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1153895422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5916534610390053362, guid: 3583e490d4e41d544b856bb6791547ac, type: 3}
+  m_PrefabInstance: {fileID: 611114660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1155113258
 PrefabInstance:
   m_ObjectHideFlags: 0
