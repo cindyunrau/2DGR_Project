@@ -15,6 +15,10 @@ TagManager:
   - Shambler
   - Ghost
   - ProtectWard
+  - Sword
+  - Spear
+  - Pistol
+  - Shotgun
   layers:
   - Default
   - TransparentFX
