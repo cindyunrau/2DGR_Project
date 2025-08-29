@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
                 rb.AddForce(movement * moveSpeed * Time.fixedDeltaTime);
             }
             
-
             if (dashPressed)
             {
                 StartCoroutine(Dash());
@@ -94,7 +93,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
         {
             if (!isImmune)
             {

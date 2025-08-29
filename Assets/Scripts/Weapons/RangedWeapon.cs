@@ -68,7 +68,7 @@ public class RangedWeapon : MonoBehaviour
         {
             Debug.Log(rayHit.collider.name);
 
-            if (rayHit.collider.CompareTag("Enemy"))
+            if (rayHit.collider.CompareTag("Shambler") || rayHit.collider.CompareTag("Ghost"))
             {
                 rayHit.collider.GetComponent<Enemy>().takeDamage(damage);
             }
