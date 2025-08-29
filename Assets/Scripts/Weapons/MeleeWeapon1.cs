@@ -60,13 +60,9 @@ public class MeleeWeapon1 : MonoBehaviour
 
             if (swinging)
             {
-                if (collision.TryGetComponent<Shambler>(out Shambler shambler))
+                if (collision.TryGetComponent<Enemy>(out Enemy hitEnemy))
                 {
-                    shambler.takeDamage(damage);
-                }
-                else if (collision.TryGetComponent<Ghost>(out Ghost ghost))
-                {
-                    ghost.takeDamage(damage);
+                    hitEnemy.takeDamage(damage);
                 }
 
                 if (collision)

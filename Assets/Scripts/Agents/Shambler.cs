@@ -9,10 +9,6 @@ public class Shambler : Enemy
 {
     private NavMeshAgent agent;
 
-    //Health Variables
-    public int maxHealth;
-    private int health;
-
     private void Start()
     {
         setHealth(maxHealth);
@@ -35,26 +31,6 @@ public class Shambler : Enemy
         {
             agent.SetDestination(target.position);
             //transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        }
-    }
-
-    public int getHealth()
-    {
-        return health;
-    }
-
-    public void setHealth(int hp)
-    {
-        health = hp;
-    }
-
-    public void takeDamage(int dmg)
-    {
-        setHealth(health-dmg);
-
-        if (health <= 0)
-        {
-            Destroy(this.gameObject);
         }
     }
 }
