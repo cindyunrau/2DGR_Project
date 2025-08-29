@@ -157,7 +157,7 @@ MonoBehaviour:
   player: {fileID: 0}
   target: {fileID: 0}
   distance: 0
-  moveSpeed: 2
+  moveSpeed: 1
   maxHealth: 3
   health: 0
 --- !u!95 &2039783699398848506
