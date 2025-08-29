@@ -8,7 +8,11 @@ public class ProtectionWard : MonoBehaviour
     public SpriteRenderer sprite;
     private GameManager gm;
     private Player player;
-    private Enemy enemy;
+
+    public float healTimer = 1f;
+    public int healAmount = 1;
+    public float damageCooldown = 1f;
+    public int damageAmount = 2;
 
     private void Start()
     {
@@ -30,19 +34,36 @@ public class ProtectionWard : MonoBehaviour
         //}
     }
 
+    public void FixedUpdate()
+    {
+        healTimer -= Time.deltaTime;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && healTimer <= 0f)
         {
             // Heal player
-            gm.HealPlayer(1);
+            gm.HealPlayer(healAmount);
+            healTimer = 1f;
         }
 
         if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
         {
             // Damage enemies
-            collision.gameObject.GetComponent<Enemy>().takeDamage(1);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy.wardDamageable)
+            {
+                enemy.takeDamage(damageAmount);
+                enemy.wardDamageable = false;
+                StartCoroutine(damageTimer(enemy, damageCooldown));
+            }
         }
+    }
 
+    private IEnumerator damageTimer(Enemy enemy, float length)
+    {
+        yield return new WaitForSeconds(length);
+        enemy.wardDamageable = true;
     }
 }
