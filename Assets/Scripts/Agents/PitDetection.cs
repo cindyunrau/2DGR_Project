@@ -42,10 +42,8 @@ public class PitDetection : MonoBehaviour
                 {
                     gm.KillPlayer();
                 }   
-            }
-            
-        }
-       
+            }          
+        }     
     }
 
     private void OnTriggerExit2D(Collider2D collision)
