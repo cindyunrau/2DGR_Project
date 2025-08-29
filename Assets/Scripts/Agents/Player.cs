@@ -83,11 +83,6 @@ public class Player : MonoBehaviour
         {
             dashPressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            gameManager.UseAmmo();
-            // Add Ammo Functionality
-        }
         // Trigger temporary
         if (Input.GetKeyDown(KeyCode.Z))
         {

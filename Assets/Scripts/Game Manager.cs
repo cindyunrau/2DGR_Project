@@ -172,14 +172,19 @@ public class GameManager : MonoBehaviour
     }
 
     // Returns true if successful
-    public bool UseAmmo()
+    public bool UseAmmo(int amount)
     {
         if (inventory["ammo"] > 0)
         {
-            inventory["ammo"] -= 1;
+            inventory["ammo"] -= amount;
             return true;
         }
         return false;
+    }
+
+    public int GetAmmo()
+    {
+        return inventory["ammo"];
     }
 
     public void updateDebug()

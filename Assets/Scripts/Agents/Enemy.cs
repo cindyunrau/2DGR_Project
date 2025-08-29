@@ -11,11 +11,15 @@ public class Enemy : MonoBehaviour
     public float distance;
     public float moveSpeed;
 
+    [Header("Health Variables")]
+    public int maxHealth;
+    public int health;
+
     private void Awake()
     {
+        setHealth(maxHealth);
         player = GameObject.FindWithTag("Player");
         target = player.transform;
-        
     }
 
     protected virtual void Pathfind()
@@ -23,5 +27,24 @@ public class Enemy : MonoBehaviour
         Debug.Log("Pathfinding to " + target.name);
     }
 
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth(int hp)
+    {
+        health = hp;
+    }
+
+    public void takeDamage(int dmg)
+    {
+        setHealth(health - dmg);
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
 }
