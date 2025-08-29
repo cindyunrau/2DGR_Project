@@ -32,16 +32,20 @@ public class ProtectionWard : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "ProtectWard")
         {
-            // Heal player
-            gm.HealPlayer(1);
-        }
+            if (parent.tag == "Shambler" || parent.tag == "Ghost")
+            {
+                // Damage enemies
+                enemy.takeDamage(1);
+            }
 
-        if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
-        {
-            // Damage enemies
-            collision.gameObject.GetComponent<Enemy>().takeDamage(1);
+            if (parent.tag == "Player")
+            {
+                // Heal player
+                gm.HealPlayer(1);
+            }
+
         }
 
     }
