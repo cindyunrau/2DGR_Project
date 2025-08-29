@@ -1,15 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ghost : Enemy
 {
+    private Animator animator;
     public float normalSpeed = 2f;
     public float wallSpeed = 1f;
+
+    private Vector2 lastPosition; // store previous frameÅfs position
+    private Vector2 movement;     // store current movement vector
+    
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        lastPosition = transform.position;
+    }
 
     private void FixedUpdate()
     {
         Pathfind();
+        HandleAnimations();
+
+        // Update lastPosition at end of frame
+        lastPosition = transform.position;
     }
 
     protected override void Pathfind()
@@ -35,6 +50,33 @@ public class Ghost : Enemy
         if (collision.gameObject.tag == "Wall")
         {
             moveSpeed = normalSpeed;
+        }
+    }
+
+    private void HandleAnimations()
+    {
+        // Capture velocity of enemy.
+        movement = ((Vector2)transform.position - lastPosition).normalized;
+
+        // If moving (always, basically)
+        if (movement.sqrMagnitude > 0.01f)
+        {
+            // If more horizontal than vertical movement, use horizontal animation.
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+            {
+                if (movement.x > 0)
+                {
+                    animator.SetInteger("direction", 2);
+                }
+                else
+                {
+                    animator.SetInteger("direction", 0);
+                }
+            }
+            else
+            {
+                animator.SetInteger("direction", 1);
+            }
         }
     }
 
