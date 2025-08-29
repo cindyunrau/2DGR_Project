@@ -7,6 +7,16 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public Player player;
+    public GameObject sword;
+    public GameObject spear;
+    public GameObject pistol;
+    public GameObject shotgun;
+
+    private int numWeapons = 0;
+    private string curWeapon;
+    private string backupWeapon;
+
+
     public GameObject gameOverScreen;
     public FadeInUI escapeText;
     public FadeInUI pauseText;
@@ -49,6 +59,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(FadeOut(pauseText,0f));
             
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            SwapWeapons();
         }
         
     }
@@ -185,6 +199,254 @@ public class GameManager : MonoBehaviour
     public int GetAmmo()
     {
         return inventory["ammo"];
+    }
+
+    public void AddSword()
+    {
+        if(numWeapons >= 2)
+        {
+            //spawn current weapon pickup on the ground
+            //
+
+            sword.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Spear":
+                    spear.SetActive(false);
+                    break;
+                case "Pistol":
+                    pistol.SetActive(false);
+                    break;
+                case "Shotgun":
+                    shotgun.SetActive(false);
+                    break;
+            }
+            curWeapon = "Sword";
+
+        }
+        else if (numWeapons == 1)
+        {
+            sword.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Spear":
+                    spear.SetActive(false);
+                    break;
+                case "Pistol":
+                    pistol.SetActive(false);
+                    break;
+                case "Shotgun":
+                    shotgun.SetActive(false);
+                    break;
+            }
+            numWeapons++;
+            backupWeapon = curWeapon;
+            curWeapon = "Sword";
+        }
+        else if (numWeapons == 0)
+        {
+            sword.SetActive(true);
+            numWeapons++;
+            backupWeapon = "None";
+            curWeapon = "Sword";
+            
+        }
+    }
+
+    public void AddSpear()
+    {
+        if (numWeapons >= 2)
+        {
+            //spawn current weapon pickup on the ground
+            //
+
+            spear.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Sword":
+                    sword.SetActive(false);
+                    break;
+                case "Pistol":
+                    pistol.SetActive(false);
+                    break;
+                case "Shotgun":
+                    shotgun.SetActive(false);
+                    break;
+            }
+            curWeapon = "Spear";
+
+        }
+        else if (numWeapons == 1)
+        {
+            spear.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Sword":
+                    sword.SetActive(false);
+                    break;
+                case "Pistol":
+                    pistol.SetActive(false);
+                    break;
+                case "Shotgun":
+                    shotgun.SetActive(false);
+                    break;
+            }
+            numWeapons++;
+            backupWeapon = curWeapon;
+            curWeapon = "Spear";
+        }
+        else if (numWeapons == 0)
+        {
+            spear.SetActive(true);
+            numWeapons++;
+            curWeapon = "Spear";
+            backupWeapon = "None";
+        }
+    }
+
+    public void AddPistol()
+    {
+        if (numWeapons >= 2)
+        {
+            //spawn current weapon pickup on the ground
+            //
+
+            pistol.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Sword":
+                    sword.SetActive(false);
+                    break;
+                case "Spear":
+                    spear.SetActive(false);
+                    break;
+                case "Shotgun":
+                    shotgun.SetActive(false);
+                    break;
+            }
+            curWeapon = "Pistol";
+
+        }
+        else if (numWeapons == 1)
+        {
+            pistol.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Sword":
+                    sword.SetActive(false);
+                    break;
+                case "Spear":
+                    spear.SetActive(false);
+                    break;
+                case "Shotgun":
+                    shotgun.SetActive(false);
+                    break;
+            }
+            numWeapons++;
+            backupWeapon = curWeapon;
+            curWeapon = "Pistol";
+        }
+        else if (numWeapons == 0)
+        {
+            pistol.SetActive(true);
+            numWeapons++;
+            curWeapon = "Pistol";
+            backupWeapon = "None";
+        }
+    }
+    public void AddShotgun()
+    {
+        if (numWeapons >= 2)
+        {
+            //spawn current weapon pickup on the ground
+            //
+
+            shotgun.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Sword":
+                    sword.SetActive(false);
+                    break;
+                case "Pistol":
+                    pistol.SetActive(false);
+                    break;
+                case "Spear":
+                    spear.SetActive(false);
+                    break;
+            }
+            curWeapon = "Shotgun";
+
+        }
+        else if (numWeapons == 1)
+        {
+            shotgun.SetActive(true);
+            switch (curWeapon)
+            {
+                case "Sword":
+                    sword.SetActive(false);
+                    break;
+                case "Pistol":
+                    pistol.SetActive(false);
+                    break;
+                case "Spear":
+                    spear.SetActive(false);
+                    break;
+            }
+            numWeapons++;
+            backupWeapon = curWeapon;
+            curWeapon = "Shotgun";
+        }
+        else if (numWeapons == 0)
+        {
+            shotgun.SetActive(true);
+            numWeapons++;
+            curWeapon = "Shotgun";
+            backupWeapon = "None";
+        }
+    }
+
+    public void SwapWeapons()
+    {
+        Debug.Log(curWeapon);
+        Debug.Log(backupWeapon);
+
+        if (numWeapons < 2)
+        {
+            return;
+        }
+        switch (curWeapon)
+        {
+            case "Sword":
+                sword.SetActive(false);
+                break;
+            case "Spear":
+                spear.SetActive(false);
+                break;
+            case "Pistol":
+                pistol.SetActive(false);
+                break;
+            case "Shotgun":
+                shotgun.SetActive(false);
+                break;
+        }
+        switch (backupWeapon)
+        {
+            case "Sword":
+                sword.SetActive(true);
+                break;
+            case "Spear":
+                spear.SetActive(true);
+                break;
+            case "Pistol":
+                pistol.SetActive(true);
+                break;
+            case "Shotgun":
+                shotgun.SetActive(true);
+                break;
+        }
+        string s = curWeapon;
+        curWeapon = backupWeapon;
+        backupWeapon = s;
     }
 
     public void updateDebug()

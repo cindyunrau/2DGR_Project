@@ -12,6 +12,10 @@ TagManager:
   - Spawner
   - Wall
   - Door
+  - Sword
+  - Spear
+  - Shotgun
+  - Pistol
   layers:
   - Default
   - TransparentFX
