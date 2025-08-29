@@ -13,39 +13,20 @@ public class ProtectionWard : MonoBehaviour
     private void Start()
     {
         gm = FindAnyObjectByType<GameManager>();
-
-        //if (parent.tag == "Player")
-        //{
-        //    player = parent.gameObject.GetComponent<Player>();
-        //}
-
-        //if (parent.tag == "Shambler")
-        //{
-        //    enemy = parent.gameObject.GetComponent<Shambler>();
-        //}
-
-        //if (parent.tag == "Ghost")
-        //{
-        //    enemy = parent.gameObject.GetComponent<Ghost>();
-        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "ProtectWard")
+        if (collision.gameObject.tag == "Player")
         {
-            if (parent.tag == "Shambler" || parent.tag == "Ghost")
-            {
-                // Damage enemies
-                enemy.takeDamage(1);
-            }
+            // Heal player
+            gm.HealPlayer(1);
+        }
 
-            if (parent.tag == "Player")
-            {
-                // Heal player
-                gm.HealPlayer(1);
-            }
-
+        else if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
+        {
+            // Damage enemies
+            collision.gameObject.GetComponent<Enemy>().takeDamage(1);
         }
 
     }
