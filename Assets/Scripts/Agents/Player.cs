@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [Header("Health Variables")]
     public float damageCooldown = 0.5f;
     public bool isImmune = false;
+    public bool wardHealable = true;
 
 
     [Header("Movement Variables")]
@@ -88,7 +89,6 @@ public class Player : MonoBehaviour
             gameManager.UseFuel();
             // Add Fuel Functionality
         }
-
     }
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class ProtectionWard : MonoBehaviour
 {
-    public GameObject parent;
-    public SpriteRenderer sprite;
     private GameManager gm;
-    private Player player;
 
-    public float healTimer = 1f;
+    public float healCooldown = 1f;
     public int healAmount = 1;
     public float damageCooldown = 1f;
     public int damageAmount = 2;
@@ -19,18 +16,18 @@ public class ProtectionWard : MonoBehaviour
         gm = FindAnyObjectByType<GameManager>();
     }
 
-    public void FixedUpdate()
-    {
-        healTimer -= Time.deltaTime;
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && healTimer <= 0f)
+        if (collision.gameObject.tag == "Player")
         {
             // Heal player
-            gm.HealPlayer(healAmount);
-            healTimer = 1f;
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player.wardHealable) 
+            {
+                gm.HealPlayer(healAmount);
+                player.wardHealable = false;
+                StartCoroutine(healTimer(player, healCooldown));
+            }
         }
 
         else if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
@@ -50,5 +47,11 @@ public class ProtectionWard : MonoBehaviour
     {
         yield return new WaitForSeconds(length);
         enemy.wardDamageable = true;
+    }
+
+    private IEnumerator healTimer(Player player, float length)
+    {
+        yield return new WaitForSeconds(length);
+        player.wardHealable = true;
     }
 }
