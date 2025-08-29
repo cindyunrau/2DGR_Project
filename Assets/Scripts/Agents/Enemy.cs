@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [Header("Health Variables")]
     public int maxHealth;
     public int health;
+    public bool wardDamageable = true;
 
     private void Awake()
     {
