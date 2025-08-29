@@ -8,10 +8,12 @@ using static UnityEngine.GraphicsBuffer;
 public class Shambler : Enemy
 {
     private NavMeshAgent agent;
+    private Animator animator;
 
     private void Start()
     {
         setHealth(maxHealth);
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -21,6 +23,7 @@ public class Shambler : Enemy
     private void FixedUpdate()
     {
         Pathfind();
+        HandleAnimations();
     }
 
     protected override void Pathfind()
@@ -31,6 +34,36 @@ public class Shambler : Enemy
         {
             agent.SetDestination(target.position);
             //transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        }
+    }
+
+    private void HandleAnimations()
+    {
+        // Capture velocity of enemy.
+        Vector2 velocity = agent.velocity;
+
+        // If moving (so always, basically)
+        if (velocity.sqrMagnitude > 0.01f)
+        {
+            // Extract direction.
+            Vector2 dir = velocity.normalized;
+
+            // If more horizontal than vertical movement, use horizontal animation.
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+            {
+                if (dir.x > 0)
+                {
+                    animator.SetInteger("direction", 2);
+                } 
+                else
+                {
+                    animator.SetInteger("direction", 0);
+                }
+            } 
+            else
+            {
+                animator.SetInteger("direction", 1);
+            }
         }
     }
 }
