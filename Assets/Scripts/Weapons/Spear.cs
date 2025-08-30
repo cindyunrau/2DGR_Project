@@ -6,21 +6,15 @@ using UnityEngine;
 public class Spear : MonoBehaviour
 {
 
-    private bool swinging = false;
+    private Animator anim;
+
+    private bool stabbing = false;
 
     private int frameCounter;
 
-    private Vector3 idlePos;
-
-    private Vector3 idleRot;
-
-    private Vector3 animPos = new Vector3(1, 0, 0);
-
-    private Vector3 animRot = new Vector3(0, 0, 0);
-
     private GameObject player;
 
-    public int swingFrames = 45;
+    public int stabFrames = 45;
 
     public float knockbackFactor;
 
@@ -31,33 +25,30 @@ public class Spear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        idlePos = transform.localPosition;
-        idleRot = transform.localEulerAngles;
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (swinging)
+        if (stabbing)
         {
-            transform.localPosition = animPos;
-            transform.localEulerAngles = animRot;
+            anim.SetBool("isAttacking", true);
             frameCounter++;
 
-            if (frameCounter == swingFrames)
+            if (frameCounter == stabFrames)
             {
-                transform.localPosition = idlePos;
-                transform.localEulerAngles = idleRot;
+                anim.SetBool("isAttacking", false);
                 frameCounter = 0;
-                swinging = false;
+                stabbing = false;
             }
 
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            swinging = true;
+            stabbing = true;
         }
     }
 
@@ -67,7 +58,7 @@ public class Spear : MonoBehaviour
         {
             Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
 
-            if (swinging)
+            if (stabbing)
             {
                 if (collision.TryGetComponent<Shambler>(out Shambler shambler))
                 {
@@ -83,10 +74,9 @@ public class Spear : MonoBehaviour
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockbackEnd(enemy));
 
-                transform.localPosition = idlePos;
-                transform.localEulerAngles = idleRot;
-                //frameCounter = 0;
-                //swinging = false;
+                anim.SetBool("isAttacking", false);
+                frameCounter = 0;
+                stabbing = false;
 
             }
 
