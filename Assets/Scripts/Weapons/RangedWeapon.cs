@@ -48,6 +48,8 @@ public class RangedWeapon : MonoBehaviour
         if (readyToShoot && shooting && gameManager.GetAmmo() >= bulletsPerTap)
         {
             bulletsShot = bulletsPerTap;
+            gameManager.blockWeaponSwap = true;
+            gameManager.weaponSwapCooldown = 150;
             anim.SetTrigger("Fire");
             Shoot();
         }
