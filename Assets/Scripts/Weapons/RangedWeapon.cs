@@ -45,9 +45,10 @@ public class RangedWeapon : MonoBehaviour
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
         }
 
-        if (readyToShoot && shooting && gameManager.GetAmmo() > 0)
+        if (readyToShoot && shooting && gameManager.GetAmmo() >= bulletsPerTap)
         {
             bulletsShot = bulletsPerTap;
+            anim.SetTrigger("Fire");
             Shoot();
         }
 
@@ -56,7 +57,6 @@ public class RangedWeapon : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-        anim.SetTrigger("Fire");
 
         Debug.Log("Shooting");
         // Spread

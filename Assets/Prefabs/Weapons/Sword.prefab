@@ -72,7 +72,7 @@ MonoBehaviour:
   swingFrames: 15
   knockbackFactor: 15
   knockbackTime: 0.15
-  damage: 2
+  damage: 1
 --- !u!50 &653436713580856648
 Rigidbody2D:
   serializedVersion: 4
