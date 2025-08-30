@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01298acc0c012b48a27e16d13efc78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRadius: 1.8
+  interactRadius: 1.9
   player: {fileID: 0}

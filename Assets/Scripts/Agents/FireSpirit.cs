@@ -47,7 +47,7 @@ public class FireSpirit : MonoBehaviour
         // Check player distance
         float distance = Vector2.Distance(player.position, transform.position);
         // Initiate Phase 2
-        if (exitDiscovered.value && distance <= interactRadius && Input.GetKeyDown(KeyCode.E))
+        if (exitDiscovered.value && distance <= interactRadius && maxHealth > 0 && Input.GetKeyDown(KeyCode.E))
         {
             phase2Started.value = true;
             GetComponent<NavMeshAgent>().enabled = true;
