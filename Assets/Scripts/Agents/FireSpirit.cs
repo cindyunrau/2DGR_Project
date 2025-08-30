@@ -30,6 +30,7 @@ public class FireSpirit : MonoBehaviour
     private NavMeshAgent agent;
     private Transform target;
     public Spotlight_Control spotlight;
+    public GameObject safetyWard;
 
 
     public void Start()
@@ -51,6 +52,7 @@ public class FireSpirit : MonoBehaviour
             phase2Started.value = true;
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<CircleCollider2D>().enabled = true;
+            safetyWard.SetActive(false);
             PathFind();
         }
     }
