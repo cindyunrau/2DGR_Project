@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     public GameManager gameManager;
     public Spotlight_Control spotlight;
+    public BooleanValue exitFound;
     
     //public CapsuleCollider2D collider;
 
@@ -122,6 +123,10 @@ public class Player : MonoBehaviour
             print("Fuel");
             gameManager.AddFuel(1);
             other.gameObject.SetActive(false);
+        }
+        else if(other.gameObject.tag == "Exit")
+        {
+            exitFound.value = true;
         }
     }
 

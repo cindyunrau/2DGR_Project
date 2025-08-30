@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public FadeInUI escapeText;
     public FadeInUI pauseText;
     private float textDuration = 2f;
+    public BooleanValue exitFound;
+    public BooleanValue phase2Started;
 
     public GameObject sword;
     public GameObject swordPickup;
@@ -90,6 +92,8 @@ public class GameManager : MonoBehaviour
         inventory.Add("fuel", 0);
         inventory.Add("ammo", 0);
 
+        exitFound.value = false;
+        phase2Started.value = false;
 
         gameOverScreen.SetActive(false);
         player.gameObject.SetActive(true);
@@ -191,6 +195,11 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public int GetFuel()
+    {
+        return inventory["fuel"];
     }
 
     public void AddAmmo(int amount)

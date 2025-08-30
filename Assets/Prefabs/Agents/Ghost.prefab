@@ -150,9 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  fireSpirit: {fileID: 0}
   target: {fileID: 0}
   distance: 0
   moveSpeed: 2
+  phase2Started: {fileID: 11400000, guid: e093d133f0982414e9e5df2067839c38, type: 2}
   maxHealth: 3
   health: 0
   wardDamageable: 1

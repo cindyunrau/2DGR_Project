@@ -19,6 +19,7 @@ TagManager:
   - Spear
   - Pistol
   - Shotgun
+  - FireSpirit
   layers:
   - Default
   - TransparentFX
