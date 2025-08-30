@@ -33,17 +33,17 @@ public class WeaponPickup : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Sword"))
             {
                 gm.AddSword();
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
             else if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Spear"))
             {
                 gm.AddSpear();
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
             else if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Pistol"))
             {
                 gm.AddPistol();
-                gameObject.SetActive(false);
+                Destroy(gameObject);
 
                 if (!gotPistol)
                 {
@@ -54,7 +54,7 @@ public class WeaponPickup : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Shotgun"))
             {
                 gm.AddShotgun();
-                gameObject.SetActive(false);
+                Destroy(gameObject);
 
                 if (!gotShotgun)
                 {

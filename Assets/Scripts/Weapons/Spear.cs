@@ -14,6 +14,8 @@ public class Spear : MonoBehaviour
 
     private GameObject player;
 
+    public GameManager gm;
+
     public int stabFrames = 45;
 
     public float knockbackFactor;
@@ -34,11 +36,13 @@ public class Spear : MonoBehaviour
     {
         if (stabbing)
         {
+            gm.blockWeaponSwap = true;
             anim.SetBool("isAttacking", true);
             frameCounter++;
 
             if (frameCounter == stabFrames)
             {
+                gm.weaponSwapCooldown = 300;
                 anim.SetBool("isAttacking", false);
                 frameCounter = 0;
                 stabbing = false;
@@ -74,6 +78,7 @@ public class Spear : MonoBehaviour
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockbackEnd(enemy));
 
+                gm.weaponSwapCooldown = 300;
                 anim.SetBool("isAttacking", false);
                 frameCounter = 0;
                 stabbing = false;

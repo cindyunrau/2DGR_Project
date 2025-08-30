@@ -22,7 +22,11 @@ public class GameManager : MonoBehaviour
     public GameObject pistol;
     public GameObject pistolPickup; 
     public GameObject shotgun;
-    public GameObject shotgunPickup; 
+    public GameObject shotgunPickup;
+
+    public int weaponSwapCooldown;
+    public bool blockWeaponSwap = false;
+
 
     private int numWeapons = 0;
     private string curWeapon;
@@ -47,6 +51,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (weaponSwapCooldown > 0)
+        {
+            weaponSwapCooldown--;
+            if (weaponSwapCooldown <= 0)
+            {
+                blockWeaponSwap = false;
+                Debug.Log("Ready To Swap");
+            }
+        }
         updateDebug();
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -239,18 +252,15 @@ public class GameManager : MonoBehaviour
             {
                 case "Spear":
                     spear.SetActive(false);
-                    spearPickup.transform.position = player.transform.position;
-                    spearPickup.SetActive(true);
+                    Instantiate(spearPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Pistol":
                     pistol.SetActive(false);
-                    pistolPickup.transform.position = player.transform.position;
-                    pistolPickup.SetActive(true);
+                    Instantiate(pistolPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Shotgun":
                     shotgun.SetActive(false);
-                    shotgunPickup.transform.position = player.transform.position;
-                    shotgunPickup.SetActive(true);
+                    Instantiate(shotgunPickup, player.transform.position, Quaternion.identity);
                     break;
             }
             curWeapon = "Sword";
@@ -297,18 +307,15 @@ public class GameManager : MonoBehaviour
             {
                 case "Sword":
                     sword.SetActive(false);
-                    swordPickup.transform.position = player.transform.position;
-                    swordPickup.SetActive(true);
+                    Instantiate(swordPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Pistol":
                     pistol.SetActive(false);
-                    pistolPickup.transform.position = player.transform.position;
-                    pistolPickup.SetActive(true);
+                    Instantiate(pistolPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Shotgun":
                     shotgun.SetActive(false);
-                    shotgunPickup.transform.position = player.transform.position;
-                    shotgunPickup.SetActive(true);
+                    Instantiate(shotgunPickup, player.transform.position, Quaternion.identity);
                     break;
             }
             curWeapon = "Spear";
@@ -354,18 +361,15 @@ public class GameManager : MonoBehaviour
             {
                 case "Sword":
                     sword.SetActive(false);
-                    swordPickup.transform.position = player.transform.position;
-                    swordPickup.SetActive(true);
+                    Instantiate(swordPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Spear":
                     spear.SetActive(false);
-                    spearPickup.transform.position = player.transform.position;
-                    spearPickup.SetActive(true);
+                    Instantiate(spearPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Shotgun":
                     shotgun.SetActive(false);
-                    shotgunPickup.transform.position = player.transform.position;
-                    shotgunPickup.SetActive(true);
+                    Instantiate(shotgunPickup, player.transform.position, Quaternion.identity);
                     break;
             }
             curWeapon = "Pistol";
@@ -410,18 +414,15 @@ public class GameManager : MonoBehaviour
             {
                 case "Sword":
                     sword.SetActive(false);
-                    swordPickup.transform.position = player.transform.position;
-                    swordPickup.SetActive(true);
+                    Instantiate(swordPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Pistol":
                     pistol.SetActive(false);
-                    pistolPickup.transform.position = player.transform.position;
-                    pistolPickup.SetActive(true);
+                    Instantiate(pistolPickup, player.transform.position, Quaternion.identity);
                     break;
                 case "Spear":
                     spear.SetActive(false);
-                    spearPickup.transform.position = player.transform.position;
-                    spearPickup.SetActive(true);
+                    Instantiate(spearPickup, player.transform.position, Quaternion.identity);
                     break;
             }
             curWeapon = "Shotgun";
@@ -464,6 +465,10 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        if (blockWeaponSwap)
+        {
+            return;
+        }
         switch (curWeapon)
         {
             case "Sword":
@@ -497,6 +502,9 @@ public class GameManager : MonoBehaviour
         string s = curWeapon;
         curWeapon = backupWeapon;
         backupWeapon = s;
+
+        blockWeaponSwap = true;
+        weaponSwapCooldown = 150;
     }
     public void updateDebug()
     {

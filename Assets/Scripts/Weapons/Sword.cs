@@ -13,6 +13,8 @@ public class Sword : MonoBehaviour
 
     private GameObject player;
 
+    public GameManager gm;
+
     public int swingFrames = 45;
 
     public float knockbackFactor;
@@ -33,11 +35,13 @@ public class Sword : MonoBehaviour
     {
         if (swinging)
         {
+            gm.blockWeaponSwap = true;
             anim.SetBool("swinging", true);
             frameCounter++;
 
             if (frameCounter == swingFrames)
             {
+                gm.weaponSwapCooldown = 100;
                 anim.SetBool("swinging", false);
                 frameCounter = 0;
                 swinging = false;
@@ -76,9 +80,9 @@ public class Sword : MonoBehaviour
                 
 
 
-                anim.SetBool("swinging", false);
-                frameCounter = 0;
-                swinging = false;
+               // anim.SetBool("swinging", false);
+               // frameCounter = 0;
+               // swinging = false;
 
             }
 
