@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GetAmmoFuel : MonoBehaviour
 {
-    public GameManager GameManager;
+    public GameManager gm;
     public float interactRadius = 1f;
     public Transform player;
 
@@ -30,12 +30,12 @@ public class GetAmmoFuel : MonoBehaviour
             // Check for trying to pick up resource.
             if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Ammo"))
             {
-                GameManager.AddAmmo(Random.Range(5, 15));
+                gm.AddAmmo(Random.Range(10, 25));
                 Destroy(gameObject);
             } 
             else if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Fuel"))
             {
-                GameManager.AddFuel(Random.Range(2, 8));
+                gm.AddFuel(Random.Range(2, 8));
                 Destroy(gameObject);
             }
         } 

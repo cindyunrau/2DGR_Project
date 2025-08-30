@@ -9,6 +9,9 @@ public class WeaponPickup : MonoBehaviour
     public Transform player;
 
     private Animator animator;
+    
+    private bool gotPistol = false;
+    private bool gotShotgun = false;
 
     private void Awake()
     {
@@ -41,11 +44,23 @@ public class WeaponPickup : MonoBehaviour
             {
                 gm.AddPistol();
                 gameObject.SetActive(false);
+
+                if (!gotPistol)
+                {
+                    gotPistol = true;
+                    gm.AddAmmo(8);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Shotgun"))
             {
                 gm.AddShotgun();
                 gameObject.SetActive(false);
+
+                if (!gotShotgun)
+                {
+                    gotShotgun = true;
+                    gm.AddAmmo(20);
+                }
             }
         }
         else
