@@ -14,11 +14,11 @@ public class PitDetection : MonoBehaviour
     {
         sprite = parent.GetComponent<SpriteRenderer>();
         gm = FindAnyObjectByType<GameManager>();
-
-        if (parent.tag == "Player")
-        {
-            player = parent.gameObject.GetComponent<Player>();
-        }
+        player = FindAnyObjectByType<Player>();
+        //if (parent.tag == "Player")
+        //{
+        //    player = parent.gameObject.GetComponent<Player>();
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -40,7 +40,8 @@ public class PitDetection : MonoBehaviour
             { 
                 if (!player.isDashing)
                 {
-                    gm.KillPlayer();
+                    //gm.KillPlayer();
+                    gm.DamagePlayer(gm.getHealth());
                 }   
             }          
         }     
@@ -48,17 +49,20 @@ public class PitDetection : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Pit")
+        if (!player.isDead())
         {
-            if (parent.tag == "Ghost")
+            if (collision.gameObject.tag == "Pit")
             {
-                StartCoroutine(FadeIn());
-                parent.GetComponent<CircleCollider2D>().enabled = true;
-            }
-            else if(parent.tag == "Shambler")
-            {
-                StartCoroutine(FadeIn());
-                parent.GetComponent<CapsuleCollider2D>().enabled = true;
+                if (parent.tag == "Ghost")
+                {
+                    StartCoroutine(FadeIn());
+                    parent.GetComponent<CircleCollider2D>().enabled = true;
+                }
+                else if (parent.tag == "Shambler")
+                {
+                    StartCoroutine(FadeIn());
+                    parent.GetComponent<CapsuleCollider2D>().enabled = true;
+                }
             }
 
         }

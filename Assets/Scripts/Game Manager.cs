@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     // Mangaged Resources
     private int health;
     private int maxHealth = 4;
+    public Spotlight_Control playerSpotlight;
 
     private int time;
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
@@ -128,6 +130,11 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 playAgain = true;
+                //var foundEnemies = FindObjectsOfType<Enemy>();
+                //foreach (Enemy enemy in foundEnemies)
+                //{
+                //    Destroy(enemy);
+                //}
             }
 
             yield return null;
@@ -154,6 +161,9 @@ public class GameManager : MonoBehaviour
     {
         print("Take Damage");
         SetHealth(this.health - damage);
+
+        float percentHealth = (float)getHealth() / (float)getMaxHealth();
+        playerSpotlight.setShrinking((playerSpotlight.outerRange * percentHealth), (playerSpotlight.innerRange * percentHealth));
 
         if (this.health <= 0)
         {

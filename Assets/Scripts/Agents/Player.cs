@@ -98,9 +98,9 @@ public class Player : MonoBehaviour
             {
                 gameManager.DamagePlayer(1);
 
-                float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
+                //float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
 
-                spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
+                //spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
 
 
                 if (!dead)
