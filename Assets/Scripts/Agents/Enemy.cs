@@ -7,9 +7,11 @@ public class Enemy : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject fireSpirit;
     public Transform target;
     public float distance;
     public float moveSpeed;
+    public BooleanValue phase2Started;
 
     [Header("Health Variables")]
     public int maxHealth;
@@ -20,7 +22,17 @@ public class Enemy : MonoBehaviour
     {
         setHealth(maxHealth);
         player = GameObject.FindWithTag("Player");
-        target = player.transform;
+        fireSpirit = GameObject.FindWithTag("FireSpirit");
+
+        if (!phase2Started.value)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            target = fireSpirit.transform;
+        }
+        
     }
 
     protected virtual void Pathfind()

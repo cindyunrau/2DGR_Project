@@ -6,6 +6,7 @@ public class RandomSpawner : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject fireSpirit;
     public Transform[] spawnPointList;
     public Enemy[] enemyList;
     public float spawnTimer;
@@ -14,23 +15,25 @@ public class RandomSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(spawnTimer <= 0)
+        if (!player.GetComponent<Player>().isDead())
         {
-            //Debug.Log(spawnPointList.Length + " " + enemyList.Length);
-
-            int randSP = Random.Range(0, spawnPointList.Length);
-            int randEnemy = Random.Range(0, enemyList.Length);
-
-            // Check if selected spawnPoint is outside of player's vision and active
-            if (Vector2.Distance(spawnPointList[randSP].position, player.transform.position) 
-                                    > player.GetComponent<Player>().spotlight.innerRange + 3
-                                    && spawnPointList[randSP].gameObject.activeSelf)
+            if (spawnTimer <= 0)
             {
-                SpawnEnemy(spawnPointList[randSP], enemyList[randEnemy]);
-            }
-        }
+                //Debug.Log(spawnPointList.Length + " " + enemyList.Length);
 
-        spawnTimer -= Time.deltaTime;
+                int randSP = Random.Range(0, spawnPointList.Length);
+                int randEnemy = Random.Range(0, enemyList.Length);
+
+                // Check if selected spawnPoint is outside of player's vision and active
+                if (Vector2.Distance(spawnPointList[randSP].position, player.transform.position)
+                                        > player.GetComponent<Player>().spotlight.innerRange + 3
+                                        && spawnPointList[randSP].gameObject.activeSelf)
+                {
+                    SpawnEnemy(spawnPointList[randSP], enemyList[randEnemy]);
+                }
+            }
+            spawnTimer -= Time.deltaTime;
+        }
     }
 
     private void SpawnEnemy(Transform spawnPoint, Enemy enemy)

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public FadeInUI escapeText;
     public FadeInUI pauseText;
     private float textDuration = 2f;
+    public BooleanValue exitFound;
+    public BooleanValue phase2Started;
 
     public GameObject sword;
     public GameObject swordPickup;
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     // Mangaged Resources
     private int health;
     private int maxHealth = 4;
+    public Spotlight_Control playerSpotlight;
 
     private int time;
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
@@ -90,6 +94,8 @@ public class GameManager : MonoBehaviour
         inventory.Add("fuel", 0);
         inventory.Add("ammo", 0);
 
+        exitFound.value = false;
+        phase2Started.value = false;
 
         gameOverScreen.SetActive(false);
         player.gameObject.SetActive(true);
@@ -151,6 +157,9 @@ public class GameManager : MonoBehaviour
         print("Take Damage");
         SetHealth(this.health - damage);
 
+        float percentHealth = (float)getHealth() / (float)getMaxHealth();
+        playerSpotlight.setShrinking((playerSpotlight.outerRange * percentHealth), (playerSpotlight.innerRange * percentHealth));
+
         if (this.health <= 0)
         {
             KillPlayer();
@@ -191,6 +200,11 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public int GetFuel()
+    {
+        return inventory["fuel"];
     }
 
     public void AddAmmo(int amount)
