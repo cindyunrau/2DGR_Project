@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd7fc4407e60cf4c9d5db3736225a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRadius: 1.8
+  interactRadius: 1.9
   player: {fileID: 0}
   farDoorAnimator: {fileID: 2810342747689903318}
   nearDoorAnimator: {fileID: 2237964618560201676}
