@@ -46,4 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  escapeText: {fileID: 0}
+  pauseText: {fileID: 0}
+  exitFound: {fileID: 11400000, guid: 50ca5b56ec1b9444ebae6e86b64f00c5, type: 2}
+  phase2Started: {fileID: 11400000, guid: e093d133f0982414e9e5df2067839c38, type: 2}
+  sword: {fileID: 0}
+  swordPickup: {fileID: 0}
+  spear: {fileID: 0}
+  spearPickup: {fileID: 0}
+  pistol: {fileID: 0}
+  pistolPickup: {fileID: 0}
+  shotgun: {fileID: 0}
+  shotgunPickup: {fileID: 0}
+  playerSpotlight: {fileID: 0}
   debugText: {fileID: 0}
