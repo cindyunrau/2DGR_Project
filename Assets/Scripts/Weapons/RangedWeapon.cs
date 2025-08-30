@@ -19,11 +19,13 @@ public class RangedWeapon : MonoBehaviour
     public LayerMask whatIsEnemy;
     public LayerMask whatIsWall; 
     public GameManager gameManager;
+    private Animator anim;
     [SerializeField] private GameObject bulletTrail;
 
     private void Awake()
     {
         readyToShoot = true;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -43,9 +45,10 @@ public class RangedWeapon : MonoBehaviour
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
         }
 
-        if (readyToShoot && shooting && gameManager.GetAmmo() > 0)
+        if (readyToShoot && shooting && gameManager.GetAmmo() >= bulletsPerTap)
         {
             bulletsShot = bulletsPerTap;
+            anim.SetTrigger("Fire");
             Shoot();
         }
 

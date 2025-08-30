@@ -8,13 +8,11 @@ public class WeaponPickup : MonoBehaviour
     public float interactRadius = 1f;
     public Transform player;
 
+    private Animator animator;
+
     private void Awake()
     {
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,6 +24,7 @@ public class WeaponPickup : MonoBehaviour
         // If inside radius, highlight
         if (distance <= interactRadius)
         {
+            animator.SetBool("isPlayerNear", true);
 
             // Check for trying to pick up a weapon
             if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Sword"))
@@ -48,6 +47,10 @@ public class WeaponPickup : MonoBehaviour
                 gm.AddShotgun();
                 gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            animator.SetBool("isPlayerNear", false);
         }
 
     }
