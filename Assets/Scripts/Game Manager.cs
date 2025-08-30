@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public FadeInUI escapeText;
     public FadeInUI pauseText;
-    private float textDuration = 2f;
+    //private float textDuration = 2f;
     public BooleanValue exitFound;
     public BooleanValue phase2Started;
 

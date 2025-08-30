@@ -21,6 +21,7 @@ TagManager:
   - Shotgun
   - FireSpirit
   - Exit
+  - ItemSpawnPoint
   layers:
   - Default
   - TransparentFX
