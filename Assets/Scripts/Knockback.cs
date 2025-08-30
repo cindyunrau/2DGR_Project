@@ -11,8 +11,8 @@ public class Knockback : MonoBehaviour
 
     private void Start()
     {
-        rb = player.GetComponent<Rigidbody2D>();
-        Debug.Log(player.isImmune);
+        rb = GetComponent<Rigidbody2D>();
+        //Debug.Log(player.isImmune);
     }
     
 
@@ -21,28 +21,42 @@ public class Knockback : MonoBehaviour
         if (collision.gameObject.tag == "Shambler" || collision.gameObject.tag == "Ghost")
         {
             Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
-
-            if (enemy && !player.isDead() && !player.isDashing)
+            if(this.tag == "Player")
             {
-                Vector2 difference = (enemy.transform.position - transform.position).normalized * thrust;
-                enemy.AddForce(difference, ForceMode2D.Impulse);
-                rb.AddForce(difference * -1f, ForceMode2D.Impulse);
-                StartCoroutine(KnockbackEnd(enemy));
-                
+                if (enemy && !player.isDead() && !player.isDashing)
+                {
+                    Vector2 difference = (enemy.transform.position - transform.position).normalized * thrust;
+                    enemy.AddForce(difference, ForceMode2D.Impulse);
+                    rb.AddForce(difference * -1f, ForceMode2D.Impulse);
+                    StartCoroutine(KnockbackEnd(enemy));
+                }
             }
+            else if(this.tag == "FireSpirit")
+            {
+                FireSpirit fireSpirit = GetComponent<FireSpirit>();
+                if (enemy && !fireSpirit.dead)
+                {
+                    Vector2 difference = (enemy.transform.position - transform.position).normalized * thrust;
+                    enemy.AddForce(difference, ForceMode2D.Impulse);
+                    rb.AddForce(difference * -1f, ForceMode2D.Impulse);
+                    StartCoroutine(KnockbackEnd(enemy));
+                }
+            }
+            
 
         }
     }
     private IEnumerator KnockbackEnd(Rigidbody2D enemy)
     {
-        //if (enemy)
-        //{
-            yield return new WaitForSeconds(knockbackTime);
-            print("enemyvel");
-            if (enemy)
-            {
-                enemy.velocity = Vector2.zero;
-            }
-        //}
+        yield return new WaitForSeconds(knockbackTime);
+        print("enemyvel");
+        if (enemy)
+        {
+            enemy.velocity = Vector2.zero;
+        }
+        if(this.tag == "FireSpirit")
+        {
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 }

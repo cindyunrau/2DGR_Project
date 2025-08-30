@@ -24762,7 +24762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380403141796886984, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3282552323951729800, guid: 1d08ca8749d73e74a81e247dae6bc079, type: 3}
       propertyPath: m_Intensity
@@ -25777,13 +25777,15 @@ GameObject:
   - component: {fileID: 1119439625}
   - component: {fileID: 1119439626}
   - component: {fileID: 1119439623}
+  - component: {fileID: 1119439628}
+  - component: {fileID: 1119439629}
   m_Layer: 0
   m_Name: FireSpirit
   m_TagString: FireSpirit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1119439623
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25890,8 +25892,9 @@ MonoBehaviour:
   moveSpeed: 0.5
   health: 0
   maxHealth: 0
-  damageCooldown: 0.5
+  damageCooldown: 1
   isImmune: 0
+  dead: 0
   fuelingCooldown: 0.2
   canRecieveFuel: 1
   player: {fileID: 589213190}
@@ -25925,8 +25928,58 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &1119439628
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119439622}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1119439629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119439622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d82c1ab81d76648a26d19ee582fc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
+  knockbackTime: 0.2
+  player: {fileID: 0}
 --- !u!1 &1126566803
 GameObject:
   m_ObjectHideFlags: 0
@@ -28130,6 +28183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 589213188}
+  fireSpirit: {fileID: 0}
   spawnPointList:
   - {fileID: 958956300}
   - {fileID: 218457714}

@@ -15,6 +15,7 @@ public class FireSpirit : MonoBehaviour
     public int maxHealth = 0;
     public float damageCooldown = 0.5f;
     public bool isImmune = false;
+    public bool dead = false;
 
     [Header("Fuel Variables")]
     public float fuelingCooldown = 0.2f;
@@ -49,6 +50,7 @@ public class FireSpirit : MonoBehaviour
         {
             phase2Started.value = true;
             GetComponent<NavMeshAgent>().enabled = true;
+            GetComponent<CircleCollider2D>().enabled = true;
             PathFind();
         }
     }
@@ -70,12 +72,33 @@ public class FireSpirit : MonoBehaviour
         {
             if (!isImmune)
             {
-                health--;
-                float percentHealth = (float)health / (float)maxHealth;
-                spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
+                DamageFireSpirit(1);        
+            }
+
+            if (!dead)
+            {
                 StartCoroutine(IFrames(damageCooldown));
             }
         }
+    }
+
+    private void DamageFireSpirit(int damage)
+    {
+        health -= damage;
+        float percentHealth = (float)health / (float)maxHealth;
+        spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
+
+        if (health <= 0)
+        {
+            KillFireSpirit();
+        }
+    }
+
+    private void KillFireSpirit()
+    {
+        dead = true;
+        this.gameObject.SetActive(false);
+        gm.DamagePlayer(gm.getHealth());
     }
 
     private void PathFind()
@@ -88,6 +111,7 @@ public class FireSpirit : MonoBehaviour
         if (!phase2Started.value)
         {
             maxHealth++;
+            health++;
             gm.UseFuel();
         }
         else

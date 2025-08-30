@@ -130,11 +130,6 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 playAgain = true;
-                //var foundEnemies = FindObjectsOfType<Enemy>();
-                //foreach (Enemy enemy in foundEnemies)
-                //{
-                //    Destroy(enemy);
-                //}
             }
 
             yield return null;
