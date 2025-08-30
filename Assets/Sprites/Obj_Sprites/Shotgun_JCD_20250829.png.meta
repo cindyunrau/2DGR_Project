@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe561efe509deaf47a8f43cb137e1a18
+guid: 11988ecf68386854eb67aa78d2468ec3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,85 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Resources_JCD_20250828_0
+      name: Shotgun_JCD_20250829_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 12
-        width: 13
+        width: 31
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 036accb208d8f124b834877aa35eeda3
-      internalID: -1872221499
+      spriteID: 8f980ce078666934b906f34d8b196c8d
+      internalID: -1756070832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resources_JCD_20250828_1
+      name: Shotgun_JCD_20250829_1
       rect:
         serializedVersion: 2
-        x: 13
+        x: 61
         y: 12
-        width: 13
+        width: 31
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adee740598be78046b5f4c6fc238d0d9
-      internalID: -1788059527
+      spriteID: 628ccf5199b3e5b438d90fa50378f27d
+      internalID: -317707432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resources_JCD_20250828_2
+      name: Shotgun_JCD_20250829_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 13
+        width: 46
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1567bbe7d637648499bd358cb1168766
-      internalID: 282689550
+      spriteID: a57e89c48f20c804099363f00e05a00b
+      internalID: 1186821290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resources_JCD_20250828_3
+      name: Shotgun_JCD_20250829_3
       rect:
         serializedVersion: 2
-        x: 13
+        x: 61
         y: 0
-        width: 13
+        width: 31
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9febedc4e1377f7419548bcd1fddeeef
-      internalID: 1831598567
+      spriteID: b6f754b791f88a44fa6af535a565f3c3
+      internalID: -447861689
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Resources_JCD_20250828_0: -1872221499
-      Resources_JCD_20250828_1: -1788059527
-      Resources_JCD_20250828_2: 282689550
-      Resources_JCD_20250828_3: 1831598567
+      Shotgun_JCD_20250829_0: -1756070832
+      Shotgun_JCD_20250829_1: -317707432
+      Shotgun_JCD_20250829_2: 1186821290
+      Shotgun_JCD_20250829_3: -447861689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

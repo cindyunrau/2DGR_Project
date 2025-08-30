@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e909d63a1c3f3d47bbb66ff2ffa6a7c
+guid: 5ecd85101dc4e7149853c6e5239be780
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,85 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UpDownDoor_JCD_20250827_0
+      name: Pistol_JCD_20250829_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 12
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f09a8296971b2349a7faec4abf1c5db
+      internalID: -1226583396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_JCD_20250829_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 12
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bed4f39935b56f459d19a80ec70a5f2
+      internalID: 864054100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_JCD_20250829_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 38
+        width: 29
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73cf12252e09aca45b943da478ee2c1a
-      internalID: 52352167
+      spriteID: f6358146c6f088f46bbf1f4e65aafb1b
+      internalID: -396701337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UpDownDoor_JCD_20250827_1
+      name: Pistol_JCD_20250829_3
       rect:
         serializedVersion: 2
-        x: 32
+        x: 40
         y: 0
-        width: 32
-        height: 38
+        width: 18
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f39f45aef5660184980774de07c97931
-      internalID: 308892161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UpDownDoor_JCD_20250827_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9602bab60ba9fa4abb9476489972e8d
-      internalID: 400010986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UpDownDoor_JCD_20250827_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 614f3f65c30841b4e894757f49298687
-      internalID: -635663056
+      spriteID: 65133f799aaae0c4f8b10f87d060dc89
+      internalID: -414728519
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UpDownDoor_JCD_20250827_0: 52352167
-      UpDownDoor_JCD_20250827_1: 308892161
-      UpDownDoor_JCD_20250827_2: 400010986
-      UpDownDoor_JCD_20250827_3: -635663056
+      Pistol_JCD_20250829_0: -1226583396
+      Pistol_JCD_20250829_1: 864054100
+      Pistol_JCD_20250829_2: -396701337
+      Pistol_JCD_20250829_3: -414728519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
