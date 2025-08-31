@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Ghost : Enemy
 {
     private Animator animator;
+    public AudioClip deathSound;
     public float normalSpeed = 2f;
     public float wallSpeed = 1f;
 
@@ -17,7 +18,15 @@ public class Ghost : Enemy
         animator = GetComponent<Animator>();
         lastPosition = transform.position;
     }
-
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            float pitch = Random.Range(1.05f, 1.3f);
+            SoundManager.instance.playSoundClip(deathSound, this.transform, 0.7f, pitch);
+            Destroy(this.gameObject);
+        }
+    }
     private void FixedUpdate()
     {
         Pathfind();

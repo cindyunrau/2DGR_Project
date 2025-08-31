@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public float moveSpeed;
     public BooleanValue phase2Started;
 
+    public AudioClip hitSound;
+
     [Header("Health Variables")]
     public int maxHealth;
     public int health;
@@ -52,12 +54,14 @@ public class Enemy : MonoBehaviour
 
     public void takeDamage(int dmg)
     {
+        float pitch = Random.Range(1.9f, 2.0f);
+        SoundManager.instance.playSoundClip(hitSound, this.transform, 1f, pitch);
         setHealth(health - dmg);
 
-        if (health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+       // if (health <= 0)
+       // {
+       //     Destroy(this.gameObject);
+       // }
     }
 
 }
