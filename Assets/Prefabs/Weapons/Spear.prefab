@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9ff7eb5205dfc4dabd3113cc0e9c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingFrames: 100
+  gm: {fileID: 0}
+  stabFrames: 45
   knockbackFactor: 15
   knockbackTime: 0.2
   damage: 2
