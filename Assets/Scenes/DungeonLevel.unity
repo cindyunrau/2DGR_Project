@@ -28705,9 +28705,11 @@ MonoBehaviour:
   enemyList:
   - {fileID: -2675204248054462837, guid: ac3f77130a2a65948b1cb40dad2f52ea, type: 3}
   - {fileID: 488355532999357010, guid: cc6fc88b861b94f48995c9f35beb84e7, type: 3}
+  enemyCount: {fileID: 11400000, guid: bb0326bb721ac8744b40ae83586e310e, type: 2}
   spawnTimer: 0
-  frequency: 2
-  minFreq: 0.2
+  frequency: 3
+  minFreq: 1
+  enemyCap: 10
 --- !u!43 &1315881764
 Mesh:
   m_ObjectHideFlags: 0

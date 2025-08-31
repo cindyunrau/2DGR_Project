@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float distance;
     public float moveSpeed;
     public BooleanValue phase2Started;
+    public IntegerValue enemyCount;
 
     [Header("Health Variables")]
     public int maxHealth;
@@ -56,6 +57,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            enemyCount.value--;
             Destroy(this.gameObject);
         }
     }

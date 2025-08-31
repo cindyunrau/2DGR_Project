@@ -164,6 +164,7 @@ MonoBehaviour:
   distance: 0
   moveSpeed: 1
   phase2Started: {fileID: 11400000, guid: e093d133f0982414e9e5df2067839c38, type: 2}
+  enemyCount: {fileID: 11400000, guid: bb0326bb721ac8744b40ae83586e310e, type: 2}
   maxHealth: 3
   health: 0
   wardDamageable: 1
