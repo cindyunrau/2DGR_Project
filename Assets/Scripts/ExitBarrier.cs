@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExitBarrier : MonoBehaviour
@@ -10,6 +11,8 @@ public class ExitBarrier : MonoBehaviour
 
     private Animator animator;
     private Collider2D resrcCollider;
+    public FadeInUI exitText;
+    public BooleanValue exitFound;
 
     private void Awake()
     {
@@ -22,17 +25,48 @@ public class ExitBarrier : MonoBehaviour
         // Check player distance
         float distance = Vector2.Distance(player.position, transform.position);
 
-        // If inside radius, highlight
-        if (distance <= interactRadius)
+        // If exit has not yet been found
+        if (!exitFound.value)
         {
-            animator.SetBool("isPlayerNear", true);
+            // If inside radius, highlight
+            if (distance <= interactRadius)
+            {
+                animator.SetBool("isPlayerNear", true);
 
-            // Do other things here...
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    exitFound.value = true;
+                    exitText.gameObject.SetActive(true);
+                    StartCoroutine(FadeOut(exitText, 2f));
+                    animator.SetBool("isPlayerNear", false);
+                }
+
+                // Do other things here...
+            }
+            // Otherwise, no highlight
+            else
+            {
+                animator.SetBool("isPlayerNear", false);
+            }
         }
-        // Otherwise, no highlight
-        else
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "FireSpirit")
         {
-            animator.SetBool("isPlayerNear", false);
+            DestroyBarrier();
         }
+    }
+
+    private void DestroyBarrier()
+    {
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator FadeOut(FadeInUI text, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        StartCoroutine(text.FadeOut());
     }
 }
