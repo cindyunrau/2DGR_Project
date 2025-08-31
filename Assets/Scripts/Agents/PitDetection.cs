@@ -21,18 +21,20 @@ public class PitDetection : MonoBehaviour
         //}
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    //private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+
     {
         if (collision.gameObject.tag == "Pit")
         {
             if (parent.tag == "Ghost")
             {
-                StartCoroutine(FadeIn());
+                StartCoroutine(FadeOut());
                 parent.GetComponent<CircleCollider2D>().enabled = false;
             }
             else if (parent.tag == "Shambler")
             {
-                StartCoroutine(FadeIn());
+                StartCoroutine(FadeOut());
                 parent.GetComponent<CapsuleCollider2D>().enabled = false;
             }
 
