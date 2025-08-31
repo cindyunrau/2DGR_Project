@@ -40,7 +40,7 @@ public class FireSpirit : MonoBehaviour
         target = exitBarrier.transform;
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
+        //agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = moveSpeed;
     }
