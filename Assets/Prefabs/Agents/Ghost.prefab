@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 2585770976633530229}
+    - target: {fileID: 8763743936626796588, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 9045919507459687992}
     m_RemovedComponents:
     - {fileID: 7386938902374574214, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
     - {fileID: 7575708622620024122, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}

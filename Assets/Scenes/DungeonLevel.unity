@@ -12632,6 +12632,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 316198650922305768, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
   m_PrefabInstance: {fileID: 1181681719}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &589213194 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8637340282014204665, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+  m_PrefabInstance: {fileID: 1181681719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &601337950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27116,6 +27121,10 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[8]
       value: -2011620539
       objectReference: {fileID: 0}
+    - target: {fileID: 5747951183395015169, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 589213194}
     - target: {fileID: 6118008731613212978, guid: d63ea20d2a7d313479d100e4450950e8, type: 3}
       propertyPath: m_Name
       value: Player

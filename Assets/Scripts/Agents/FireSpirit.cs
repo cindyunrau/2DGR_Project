@@ -40,7 +40,7 @@ public class FireSpirit : MonoBehaviour
         target = exitBarrier.transform;
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        //agent.updateRotation = false;
+        agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = moveSpeed;
     }
@@ -206,7 +206,7 @@ public class FireSpirit : MonoBehaviour
             }
             else
             {
-                if (dir.x > 0)
+                if (dir.y > 0)
                 {
                     animator.SetInteger("direction", 1);
                 }

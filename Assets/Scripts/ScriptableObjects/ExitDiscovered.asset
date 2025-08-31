@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21832d6c0c1951b42a06cfc23e397c37, type: 3}
   m_Name: ExitDiscovered
   m_EditorClassIdentifier: 
-  value: 1
+  value: 0

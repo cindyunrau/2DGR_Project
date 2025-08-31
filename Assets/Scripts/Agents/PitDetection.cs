@@ -12,7 +12,7 @@ public class PitDetection : MonoBehaviour
 
     private void Start()
     {
-        sprite = parent.GetComponent<SpriteRenderer>();
+        //sprite = parent.GetComponent<SpriteRenderer>();
         gm = FindAnyObjectByType<GameManager>();
         player = FindAnyObjectByType<Player>();
         //if (parent.tag == "Player")
