@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.Rendering.Universal;
 
 public class FireSpirit : MonoBehaviour
 {
-
+    private Animator animator;
     public float interactRadius = 2f;
     public float moveSpeed = 0.5f;
 
@@ -36,6 +38,7 @@ public class FireSpirit : MonoBehaviour
     public void Start()
     {
         target = exitBarrier.transform;
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -49,11 +52,21 @@ public class FireSpirit : MonoBehaviour
         // Initiate Phase 2
         if (exitDiscovered.value && distance <= interactRadius && maxHealth > 0 && Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Starting phase 2!");
             phase2Started.value = true;
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<CircleCollider2D>().enabled = true;
             safetyWard.SetActive(false);
             PathFind();
+        }
+
+        if (!phase2Started.value)
+        {
+            HandlePhase1Animations();
+        }
+        else
+        {
+            HandlePhase2Animations();
         }
     }
 
@@ -136,5 +149,73 @@ public class FireSpirit : MonoBehaviour
         isImmune = true;
         yield return new WaitForSeconds(length);
         isImmune = false;
+    }
+
+    private void HandlePhase1Animations()
+    {
+        if (player == null) return;
+
+        Vector2 dir = (player.position - transform.position).normalized;
+        
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+        {
+            if (dir.x > 0)
+            {
+                animator.SetInteger("direction", 2);
+            }
+            else
+            {
+                animator.SetInteger("direction", 0);
+            }  
+        }
+        else
+        {
+            if (dir.y > 0)
+            {
+                animator.SetInteger("direction", 1);
+            }
+            else
+            {
+                animator.SetInteger("direction", 3);
+            }
+        }
+    }
+
+    private void HandlePhase2Animations()
+    {
+        // Capture velocity of fire spirit.
+        Vector2 velocity = agent.velocity;
+
+        // If moving (so always, basically)
+        if (velocity.sqrMagnitude > 0.01f)
+        {
+            // Extract direction.
+            Vector2 dir = velocity.normalized;
+
+            // If more horizontal than vertical movement, use horizontal animation.
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+            {
+                if (dir.x > 0)
+                {
+                    animator.SetInteger("direction", 2);
+                }
+                else
+                {
+                    animator.SetInteger("direction", 0);
+                }
+            }
+            else
+            {
+                if (dir.x > 0)
+                {
+                    animator.SetInteger("direction", 1);
+                }
+                else
+                {
+                    animator.SetInteger("direction", 3);
+                }
+                
+            }
+        }
     }
 }
