@@ -40,7 +40,6 @@ public class Ghost : Enemy
     {
         if (collision.gameObject.tag == "Wall")
         {
-
             moveSpeed = wallSpeed;
         }
     }

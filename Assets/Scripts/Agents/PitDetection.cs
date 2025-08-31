@@ -66,7 +66,6 @@ public class PitDetection : MonoBehaviour
                     parent.GetComponent<CapsuleCollider2D>().enabled = true;
                 }
             }
-
         }
     }
 
