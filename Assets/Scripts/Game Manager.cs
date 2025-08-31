@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public FadeInUI escapeText;
     public FadeInUI pauseText;
+    public FadeInUI introText;
     //private float textDuration = 2f;
     public BooleanValue exitFound;
     public BooleanValue phase2Started;
@@ -112,6 +113,9 @@ public class GameManager : MonoBehaviour
 
         gameOverScreen.SetActive(false);
         player.gameObject.SetActive(true);
+
+        introText.gameObject.SetActive(true);
+        StartCoroutine(FadeOut(introText, 4f));
 
     }
 
