@@ -10,6 +10,8 @@ public class Shambler : Enemy
     private NavMeshAgent agent;
     private Animator animator;
 
+    public AudioClip deathSound;
+
     private void Start()
     {
         setHealth(maxHealth);
@@ -18,6 +20,17 @@ public class Shambler : Enemy
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = moveSpeed;
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            float pitch = Random.Range(1.1f, 1.3f);
+            SoundManager.instance.playSoundClip(deathSound, this.transform, 1f, pitch);
+            enemyCount.value--;
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()

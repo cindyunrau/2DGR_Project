@@ -163,11 +163,13 @@ MonoBehaviour:
   moveSpeed: 2
   phase2Started: {fileID: 11400000, guid: e093d133f0982414e9e5df2067839c38, type: 2}
   enemyCount: {fileID: 11400000, guid: bb0326bb721ac8744b40ae83586e310e, type: 2}
+  hitSound: {fileID: 8300000, guid: 84c2d474e01779943ae7cf7369fe8f32, type: 3}
   maxHealth: 3
   health: 0
   wardDamageable: 1
   normalSpeed: 1.5
   wallSpeed: 0.75
+  deathSound: {fileID: 8300000, guid: 79299989473e0b1428ef7d9cfbb6928e, type: 3}
 --- !u!95 &8374247289265104084
 Animator:
   serializedVersion: 5

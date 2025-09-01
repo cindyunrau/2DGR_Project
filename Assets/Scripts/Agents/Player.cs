@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     public GameManager gameManager;
     public Spotlight_Control spotlight;
-    
+    public AudioClip takeDamage;
     //public CapsuleCollider2D collider;
 
     [Header("Health Variables")]
@@ -100,6 +100,8 @@ public class Player : MonoBehaviour
         {
             if (!isImmune)
             {
+                float pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+                SoundManager.instance.playSoundClip(takeDamage, this.transform, 1f,pitch);
                 gameManager.DamagePlayer(1);
 
                 //float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();

@@ -10,7 +10,9 @@ public class FireSpirit : MonoBehaviour
 {
     private Animator animator;
     public float interactRadius = 2f;
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 0.5f; 
+    public AudioClip takeDamage;
+    public AudioClip spiritScream;
 
     [Header("Health Variables")]
     public int health;
@@ -53,6 +55,8 @@ public class FireSpirit : MonoBehaviour
         if (exitDiscovered.value && distance <= interactRadius && maxHealth > 0 && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Starting phase 2!");
+            SoundManager.instance.startPhase2Music();
+            SoundManager.instance.playSoundClip(spiritScream, this.transform, 0.85f, 1.35f);
             phase2Started.value = true;
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<CircleCollider2D>().enabled = true;
@@ -99,6 +103,8 @@ public class FireSpirit : MonoBehaviour
 
     private void DamageFireSpirit(int damage)
     {
+        float pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        SoundManager.instance.playSoundClip(takeDamage, this.transform, 1f, pitch);
         health -= damage;
         float percentHealth = (float)health / (float)maxHealth;
         spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));

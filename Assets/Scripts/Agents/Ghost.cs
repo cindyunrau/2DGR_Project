@@ -11,11 +11,24 @@ public class Ghost : Enemy
 
     private Vector2 lastPosition; // store previous frameÅfs position
     private Vector2 movement;     // store current movement vector
-    
+
+    public AudioClip deathSound;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         lastPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            float pitch = Random.Range(1.05f, 1.3f);
+            SoundManager.instance.playSoundClip(deathSound, this.transform, .75f, pitch);
+            enemyCount.value--;
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()
