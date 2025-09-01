@@ -17,6 +17,7 @@ public class FireSpirit : MonoBehaviour
     [Header("Health Variables")]
     public int health;
     public int maxHealth = 0;
+    public int healthCap = 10;
     public float damageCooldown = 0.5f;
     public bool isImmune = false;
     public bool dead = false;
@@ -105,7 +106,9 @@ public class FireSpirit : MonoBehaviour
     {
         float pitch = UnityEngine.Random.Range(0.95f, 1.05f);
         SoundManager.instance.playSoundClip(takeDamage, this.transform, 1f, pitch);
+
         health -= damage;
+
         float percentHealth = (float)health / (float)maxHealth;
         spotlight.setShrinking((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
 
@@ -131,15 +134,23 @@ public class FireSpirit : MonoBehaviour
     {
         if (!phase2Started.value)
         {
-            maxHealth++;
-            health++;
-            gm.UseFuel();
+            if (maxHealth < healthCap)
+            {
+                maxHealth++;
+                spotlight.outerRange += 0.25f;
+                spotlight.innerRange += 0.25f;
+                spotlight.setGrowing(spotlight.outerRange, spotlight.innerRange);
+                health++;
+                gm.UseFuel();
+            }
         }
         else
         {
             if (health < maxHealth) 
             {
                 health++;
+                float percentHealth = (float)health / (float)maxHealth;
+                spotlight.setGrowing((spotlight.outerRange * percentHealth), (spotlight.innerRange * percentHealth));
                 gm.UseFuel();
             }
         }
