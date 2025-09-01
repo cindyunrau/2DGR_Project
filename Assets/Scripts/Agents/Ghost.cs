@@ -16,6 +16,7 @@ public class Ghost : Enemy
 
     private void Start()
     {
+        //sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         lastPosition = transform.position;
     }

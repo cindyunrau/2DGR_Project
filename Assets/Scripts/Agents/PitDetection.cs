@@ -36,43 +36,47 @@ public class PitDetection : MonoBehaviour
         }
     }
     //private void OnTriggerStay2D(Collider2D collision)
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
 
-    {
-        if (collision.gameObject.tag == "Pit")
-        {
-            if (parent.tag == "Ghost")
-            {
-                StartCoroutine(FadeOut());
-                parent.GetComponent<CircleCollider2D>().enabled = false;
-            }
-            else if (parent.tag == "Shambler")
-            {
-                StartCoroutine(FadeOut());
-                parent.GetComponent<CapsuleCollider2D>().enabled = false;
-            }       
-        }     
-    }
+    //{
+    //    if (collision.gameObject.tag == "Pit")
+    //    {
+    //        if (parent.tag == "Ghost")
+    //        {
+    //            StopCoroutine(FadeIn());
+    //            StartCoroutine(FadeOut());
+    //            parent.GetComponent<CircleCollider2D>().enabled = false;
+    //        }
+    //        else if (parent.tag == "Shambler")
+    //        {
+    //            StopCoroutine(FadeIn());
+    //            StartCoroutine(FadeOut());
+    //            parent.GetComponent<CapsuleCollider2D>().enabled = false;
+    //        }       
+    //    }     
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!player.isDead())
-        {
-            if (collision.gameObject.tag == "Pit")
-            {
-                if (parent.tag == "Ghost")
-                {
-                    StartCoroutine(FadeIn());
-                    parent.GetComponent<CircleCollider2D>().enabled = true;
-                }
-                else if (parent.tag == "Shambler")
-                {
-                    StartCoroutine(FadeIn());
-                    parent.GetComponent<CapsuleCollider2D>().enabled = true;
-                }
-            }
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (!player.isDead())
+    //    {
+    //        if (collision.gameObject.tag == "Pit")
+    //        {
+    //            if (parent.tag == "Ghost")
+    //            {
+    //                StopCoroutine(FadeOut());
+    //                StartCoroutine(FadeIn());
+    //                parent.GetComponent<CircleCollider2D>().enabled = true;
+    //            }
+    //            else if (parent.tag == "Shambler")
+    //            {
+    //                StopCoroutine(FadeOut());
+    //                StartCoroutine(FadeIn());
+    //                parent.GetComponent<CapsuleCollider2D>().enabled = true;
+    //            }
+    //        }
+    //    }
+    //}
 
     private IEnumerator FadeIn()
     {
