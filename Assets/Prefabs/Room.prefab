@@ -93,3 +93,4 @@ MonoBehaviour:
   roomEntered: 0
   spawner: {fileID: 0}
   enemy: {fileID: 488355532999357010, guid: cc6fc88b861b94f48995c9f35beb84e7, type: 3}
+  enemyCount: {fileID: 11400000, guid: bb0326bb721ac8744b40ae83586e310e, type: 2}
