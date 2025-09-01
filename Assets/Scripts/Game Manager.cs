@@ -9,12 +9,15 @@ public class GameManager : MonoBehaviour
 {
     public Player player;
     public GameObject gameOverScreen;
+    public GameObject winScreen;
     public FadeInUI escapeText;
     public FadeInUI pauseText;
     public FadeInUI introText;
     //private float textDuration = 2f;
     public BooleanValue exitFound;
     public BooleanValue phase2Started;
+    public BooleanValue barrierDestroyed;
+    public IntegerValue enemyCount;
 
     public GameObject sword;
     public GameObject swordPickup;
@@ -114,6 +117,11 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
         player.gameObject.SetActive(true);
 
+        barrierDestroyed.value = false;
+        exitFound.value = false;
+        phase2Started.value = false;
+        enemyCount.value = 0;
+
         introText.gameObject.SetActive(true);
         StartCoroutine(FadeOut(introText, 4f));
 
@@ -153,6 +161,29 @@ public class GameManager : MonoBehaviour
         }
 
         Reload();
+    }
+
+    public void Win()
+    {
+        
+        DestroyAllEnemies();
+
+        player.stopAllMovement();
+        player.gameObject.SetActive(false);
+
+        winScreen.SetActive(true);
+
+        StartCoroutine(PlayAgain());
+    }
+
+    public void DestroyAllEnemies() 
+    {
+        FindObjectOfType<RandomSpawner>().enabled = false;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
     }
 
     public int getHealth()

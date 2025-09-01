@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     public bool roomEntered = false;
     public RandomSpawner spawner;
     public Enemy enemy;
+    public IntegerValue enemyCount;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Room : MonoBehaviour
             {
                 spawnPoint.gameObject.SetActive(true);
                 Instantiate(enemy, spawnPoint);
+                enemyCount.value++;
                 if (spawner.frequency > spawner.minFreq) 
                 {
                     spawner.frequency -= 0.05f;
