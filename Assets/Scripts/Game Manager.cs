@@ -163,6 +163,25 @@ public class GameManager : MonoBehaviour
         Reload();
     }
 
+    private IEnumerator ReturnToTitle()
+    {
+        bool exit = false;
+
+        // Return to Title menu
+
+        while (!exit)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                exit = true;
+            }
+
+            yield return null;
+        }
+
+        SceneManager.LoadScene("Title Screen");
+    }
+
     public void Win()
     {
         
@@ -173,7 +192,7 @@ public class GameManager : MonoBehaviour
 
         winScreen.SetActive(true);
 
-        StartCoroutine(PlayAgain());
+        StartCoroutine(ReturnToTitle());
     }
 
     public void DestroyAllEnemies() 
