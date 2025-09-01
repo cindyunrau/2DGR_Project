@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ItemSpawning : MonoBehaviour
 {
     [Header("Prefabs")]
+    [Tooltip("Weapons MUST be ordered sword, spear, pistol, shotgun.")]
     public GameObject[] weaponPrefabs;
     public GameObject ammoPrefab;
     public GameObject fuelPrefab;
 
+    private Dictionary<WeaponType, GameObject> weaponMap;
     private List<Transform> spawnPoints = new List<Transform>();
     private Transform startRoomSpawn;
 
     private void Start()
     {
+        // Build a lookup table for weapon types -> prefab
+        weaponMap = weaponPrefabs
+            .Select(prefab => prefab.GetComponent<WeaponIdentifier>())
+            .Where(id => id != null)
+            .ToDictionary(id => id.weaponType, id => id.gameObject);
+
         // Collect all objects tagged with ItemSpawnPoint
         foreach (Transform child in transform)
         {
@@ -46,35 +55,33 @@ public class ItemSpawning : MonoBehaviour
         if (startRoomSpawn != null)
         {
             // Pick a weapon to put in the player's starting room
-            int weaponIndex = Random.Range(0, weaponPrefabs.Length);
-            Instantiate(weaponPrefabs[weaponIndex], startRoomSpawn.position, Quaternion.identity);
+            WeaponType startType = PickStartingWeaponType();
+            Instantiate(weaponMap[startType], startRoomSpawn.position, Quaternion.identity);
             availablePoints.Remove(startRoomSpawn);
 
-            // Remove that weapon from the pool of spawnable weapons
-            List<GameObject> remainingWeapons = new List<GameObject>(weaponPrefabs);
-            remainingWeapons.RemoveAt(weaponIndex);
-
-            // Place remaining weapons in random other spots
-            foreach (GameObject weapon in remainingWeapons)
+            // Spawn the rest of the weapons randomly
+            foreach (var kv in weaponMap.Where(kv => kv.Key != startType))
             {
-                if (availablePoints.Count == 0) break;
+                if (availablePoints.Count == 0) { break; }
 
                 int randIndex = Random.Range(0, availablePoints.Count);
                 Transform point = availablePoints[randIndex];
 
-                Instantiate(weapon, point.position, Quaternion.identity);
+                Instantiate(kv.Value, point.position, Quaternion.identity);
                 availablePoints.RemoveAt(randIndex);
             }
         }
         else
         {
-            Debug.LogWarning("PlayerRoomSpawn not found! All weapons will spawn randomly.");
-            for (int i = 0; i < weaponPrefabs.Length && availablePoints.Count > 0; i++)
+            Debug.LogWarning("StartItemLoc not found! All weapons will spawn randomly.");
+            foreach (var weapon in weaponMap.Values)
             {
+                if (availablePoints.Count == 0) { break; }
+
                 int randIndex = Random.Range(0, availablePoints.Count);
                 Transform point = availablePoints[randIndex];
 
-                Instantiate(weaponPrefabs[i], point.position, Quaternion.identity);
+                Instantiate(weapon, point.position, Quaternion.identity);
                 availablePoints.RemoveAt(randIndex);
             }
         }
@@ -89,15 +96,23 @@ public class ItemSpawning : MonoBehaviour
 
     private GameObject PickRandomPrefab()
     {
-        // Example weights: 60% ammo, 40% fuel
+        return Random.value <= 0.7f ? ammoPrefab : fuelPrefab;
+    }
+
+    private WeaponType PickStartingWeaponType()
+    {
         float roll = Random.value;
-        if (roll <= 0.6f)
+        if (roll <= 0.1f)
         {
-            return ammoPrefab;
+            return WeaponType.Pistol;  // 10%
         }
+        else if (roll <= 0.5f)
+        {
+            return WeaponType.Spear;   // 40%
+        }  
         else
         {
-            return fuelPrefab;
+            return WeaponType.Sword;   // 50%
         }
             
     }

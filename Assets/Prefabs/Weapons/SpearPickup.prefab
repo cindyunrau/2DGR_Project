@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4927468582680097869}
   - component: {fileID: 7910900672056604659}
   - component: {fileID: 1366846453297082030}
+  - component: {fileID: 1240054883164517263}
   m_Layer: 0
   m_Name: SpearPickup
   m_TagString: Spear
@@ -109,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 51299211
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2039537247, guid: dda66a9258447a24992835894596fbdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,3 +123,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1240054883164517263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055465908762286709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4f136a5ef2d6140a067ea3fe6e92ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 1

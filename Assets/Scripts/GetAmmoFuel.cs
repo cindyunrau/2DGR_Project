@@ -30,12 +30,12 @@ public class GetAmmoFuel : MonoBehaviour
             // Check for trying to pick up resource.
             if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Ammo"))
             {
-                gm.AddAmmo(Random.Range(10, 25));
+                gm.AddAmmo(Random.Range(12, 24));
                 Destroy(gameObject);
             } 
             else if (Input.GetKeyDown(KeyCode.E) && gameObject.CompareTag("Fuel"))
             {
-                gm.AddFuel(Random.Range(2, 8));
+                gm.AddFuel(Random.Range(2, 6));
                 Destroy(gameObject);
             }
         } 
