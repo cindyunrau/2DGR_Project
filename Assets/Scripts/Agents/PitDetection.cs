@@ -21,6 +21,20 @@ public class PitDetection : MonoBehaviour
         //}
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (parent.tag == "Player")
+        {
+            if (collision.gameObject.tag == "Pit")
+            {
+                if (!player.isDashing)
+                {
+                    //gm.KillPlayer();
+                    gm.DamagePlayer(gm.getHealth());
+                }
+            }
+        }
+    }
     //private void OnTriggerStay2D(Collider2D collision)
     private void OnTriggerEnter2D(Collider2D collision)
 
@@ -36,16 +50,7 @@ public class PitDetection : MonoBehaviour
             {
                 StartCoroutine(FadeOut());
                 parent.GetComponent<CapsuleCollider2D>().enabled = false;
-            }
-
-            if (parent.tag == "Player")
-            { 
-                if (!player.isDashing)
-                {
-                    //gm.KillPlayer();
-                    gm.DamagePlayer(gm.getHealth());
-                }   
-            }          
+            }       
         }     
     }
 
