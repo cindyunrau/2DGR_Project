@@ -12,7 +12,7 @@ public class FireSpirit : MonoBehaviour
     public float interactRadius = 2f;
     public float moveSpeed = 0.5f; 
     public AudioClip takeDamage;
-    public AudioClip spiritScream;
+    public GameObject spiritScream;
 
     [Header("Health Variables")]
     public int health;
@@ -57,7 +57,8 @@ public class FireSpirit : MonoBehaviour
         {
             Debug.Log("Starting phase 2!");
             SoundManager.instance.startPhase2Music();
-            SoundManager.instance.playSoundClip(spiritScream, this.transform, 0.85f, 1.35f);
+            spiritScream.SetActive(true);
+
             phase2Started.value = true;
             GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<CircleCollider2D>().enabled = true;
