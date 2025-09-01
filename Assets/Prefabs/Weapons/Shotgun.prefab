@@ -48,12 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca2dd04734d43c429e0c25a2fe3096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6
+  damage: 8
   timeBetweentShooting: 1
-  spread: 0.4
-  range: 3
+  spread: 0.3
+  range: 6
   timeBetweenShots: 0
-  bulletsPerTap: 4
+  bulletsPerTap: 3
   allowButtonHold: 0
   attackPoint: {fileID: 1000937333606113300}
   whatIsEnemy:

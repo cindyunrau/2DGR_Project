@@ -105,7 +105,7 @@ MonoBehaviour:
   stabFrames: 45
   knockbackFactor: 15
   knockbackTime: 0.2
-  damage: 2
+  damage: 3
 --- !u!50 &512906831297001174
 Rigidbody2D:
   serializedVersion: 4
