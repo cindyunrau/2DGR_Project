@@ -59,7 +59,7 @@ public class WeaponPickup : MonoBehaviour
                 if (!gotShotgun)
                 {
                     gotShotgun = true;
-                    gm.AddAmmo(20);
+                    gm.AddAmmo(24);
                 }
             }
         }

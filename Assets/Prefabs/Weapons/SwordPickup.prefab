@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1343083053168680600}
   - component: {fileID: 8281273501926048929}
   - component: {fileID: 421265511482581715}
+  - component: {fileID: 3547680202145829297}
   m_Layer: 0
   m_Name: SwordPickup
   m_TagString: Sword
@@ -109,7 +110,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 51299211
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1208644205, guid: 6e6c69cc072358a46a1ca10467d5690e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,3 +123,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3547680202145829297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2586064249137014251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4f136a5ef2d6140a067ea3fe6e92ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
