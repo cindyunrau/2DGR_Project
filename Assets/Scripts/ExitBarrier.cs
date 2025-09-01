@@ -8,11 +8,14 @@ public class ExitBarrier : MonoBehaviour
     public GameManager gm;
     public float interactRadius = 1.25f;
     public Transform player;
+    public Transform fireSpirit;
 
     private Animator animator;
     private Collider2D resrcCollider;
     public FadeInUI exitText;
     public BooleanValue exitFound;
+    public BooleanValue barrierDestroyed;
+    public BooleanValue phase2Started;
 
     private void Awake()
     {
@@ -49,19 +52,27 @@ public class ExitBarrier : MonoBehaviour
                 animator.SetBool("isPlayerNear", false);
             }
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "FireSpirit")
+        if (phase2Started.value)
         {
-            DestroyBarrier();
+            float spiritDistance = Vector2.Distance(fireSpirit.position, transform.position);
+            if (spiritDistance <= interactRadius && !barrierDestroyed.value)
+            {
+                DestroyBarrier();
+            }
+            else if (distance <= interactRadius && barrierDestroyed.value)
+            {
+                gm.Win();
+            }
         }
     }
 
     private void DestroyBarrier()
     {
-        gameObject.SetActive(false);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        barrierDestroyed.value = true;
+        gm.DestroyAllEnemies();
+        fireSpirit.gameObject.SetActive(false);
     }
 
     IEnumerator FadeOut(FadeInUI text, float duration)
