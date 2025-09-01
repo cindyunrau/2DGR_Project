@@ -118,6 +118,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2324787926866431677, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1348812890970664282}
+    - targetCorrespondingSourceObject: {fileID: 2324787926866431677, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3243658677581334207}
   m_SourcePrefab: {fileID: 100100000, guid: fc7c28e9ce280ef42a147b5ca6f15566, type: 3}
 --- !u!1 &7644639754566887189 stripped
 GameObject:
@@ -227,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 920673583
+  m_SortingLayerID: -447898573
   m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 2017494493, guid: 10c44e6d0cd7d89468dd08092b218c3b, type: 3}
@@ -276,3 +279,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.02614671, y: 0}
   m_Size: {x: 0.83, y: 1.69}
   m_Direction: 0
+--- !u!114 &-3243658677581334207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644639754566887189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2473b1fee5bd6be40ace68918cf60b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0

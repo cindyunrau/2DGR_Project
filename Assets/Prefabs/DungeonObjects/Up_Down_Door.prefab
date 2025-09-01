@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7776523061701814893}
   - component: {fileID: 4904325024167775618}
   - component: {fileID: 3844018451979210378}
+  - component: {fileID: -4693045611340694410}
   m_Layer: 8
   m_Name: Up_Down_Door
   m_TagString: Door
@@ -94,8 +95,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -322633381
-  m_SortingLayer: 6
+  m_SortingLayerID: -447898573
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 52352167, guid: 9e909d63a1c3f3d47bbb66ff2ffa6a7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,3 +168,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRadius: 1.9
   player: {fileID: 0}
+--- !u!114 &-4693045611340694410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441407623889652948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2473b1fee5bd6be40ace68918cf60b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0

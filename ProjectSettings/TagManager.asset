@@ -65,17 +65,17 @@ TagManager:
   - name: Environment
     uniqueID: 3703158891
     locked: 0
+  - name: Walls
+    uniqueID: 3972333915
+    locked: 0
   - name: Interactables
     uniqueID: 51299211
     locked: 0
-  - name: Player
+  - name: Player + World Objects
     uniqueID: 3847068723
     locked: 0
   - name: Enemies
     uniqueID: 920673583
-    locked: 0
-  - name: Walls
-    uniqueID: 3972333915
     locked: 0
   - name: Foreground
     uniqueID: 2283346757

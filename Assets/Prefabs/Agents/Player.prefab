@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 2344749967510575516}
   - component: {fileID: 7465741969528258061}
   - component: {fileID: 9180522240239855316}
+  - component: {fileID: -657167271025174106}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -282,7 +283,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 8
+  m_LinearDrag: 12
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 62d6a1bfa82c01a468eb6503d158b43e, type: 2}
@@ -443,6 +444,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-657167271025174106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118008731613212978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2473b1fee5bd6be40ace68918cf60b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
 --- !u!1001 &3322311786688648358
 PrefabInstance:
   m_ObjectHideFlags: 0
