@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public float dashStrength;
     public float dashTime;
     public float dashCooldown;
+    [SerializeField] private TrailRenderer trail;
 
     private bool dead = false;
 
@@ -156,7 +157,9 @@ public class Player : MonoBehaviour
         Vector2 dashForce = new Vector2(movement.x * dashStrength, movement.y * dashStrength);
         rb.AddForce(dashForce, ForceMode2D.Impulse);
         StartCoroutine(IFrames(dashTime));
+        trail.emitting = true;
         yield return new WaitForSeconds(dashTime);
+        trail.emitting = false;
         isDashing = false;
 
         // Dash cooldown
