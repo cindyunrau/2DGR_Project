@@ -58,9 +58,14 @@ public class Player : MonoBehaviour
             //rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
             if(movement != Vector2.zero)
             {
+                animator.SetBool("isMoving", true);
                 rb.AddForce(movement * moveSpeed * Time.fixedDeltaTime);
+            } 
+            else
+            {
+                animator.SetBool("isMoving", false);
             }
-            
+
             if (dashPressed)
             {
                 StartCoroutine(Dash());

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponRotation : MonoBehaviour
 {
+    // Reference to Player's animator
+    private Animator playerAnim;
 
     //holds a reference to the main camera
     private Camera mainCamera;
@@ -21,6 +23,7 @@ public class WeaponRotation : MonoBehaviour
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        playerAnim = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,23 @@ public class WeaponRotation : MonoBehaviour
         zRotationAngle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, zRotationAngle);
+
+        if (zRotationAngle >= -135 && zRotationAngle <= -45) // down
+        {
+            playerAnim.SetInteger("direction", 3);
+        } 
+        else if (zRotationAngle > -45 && zRotationAngle < 45) // right
+        {
+            playerAnim.SetInteger("direction", 2);
+        }
+        else if (zRotationAngle <= 135 && zRotationAngle >= 45) // up
+        {
+            playerAnim.SetInteger("direction", 1);
+        }
+        else // left
+        {
+            playerAnim.SetInteger("direction", 0);
+        }
 
     }
 }
