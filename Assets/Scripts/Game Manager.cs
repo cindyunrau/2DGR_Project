@@ -562,7 +562,7 @@ public class GameManager : MonoBehaviour
     }
     public void updateDebug()
     {
-        debugText.text = getHealth() + "\n" + inventory["fuel"] + "\n" + inventory["ammo"];
+        debugText.text = "              " + getHealth() + "\n              " + inventory["fuel"] + "\n              " + inventory["ammo"];
     }
 
 }
