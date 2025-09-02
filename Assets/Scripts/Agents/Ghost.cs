@@ -26,7 +26,7 @@ public class Ghost : Enemy
         if (health <= 0)
         {
             float pitch = Random.Range(1.05f, 1.3f);
-            SoundManager.instance.playSoundClip(deathSound, this.transform, .75f, pitch);
+            SoundManager.instance.playSoundClip(deathSound, this.transform, .8f, pitch);
             enemyCount.value--;
             Destroy(this.gameObject);
         }

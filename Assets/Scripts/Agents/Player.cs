@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
             if (!isImmune)
             {
                 float pitch = UnityEngine.Random.Range(0.95f, 1.05f);
-                SoundManager.instance.playSoundClip(takeDamage, this.transform, 1f,pitch);
+                SoundManager.instance.playSoundClip(takeDamage, this.transform, 1f, pitch);
                 gameManager.DamagePlayer(1);
 
                 //float percentHealth = (float)gameManager.getHealth() / (float)gameManager.getMaxHealth();
