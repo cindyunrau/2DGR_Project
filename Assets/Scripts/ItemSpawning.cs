@@ -86,21 +86,11 @@ public class ItemSpawning : MonoBehaviour
             }
         }
 
-        // Fill leftovers with random ammo/fuel
-        if (availablePoints.Count > 0)
+        // Fill remaining with random weapons/fuel/ammo
+        foreach (Transform point in availablePoints)
         {
-            // Guarantee a fuel spawn first (required to beat level)
-            int fuelIndex = Random.Range(0, availablePoints.Count);
-            Transform fuelPoint = availablePoints[fuelIndex];
-            Instantiate(fuelPrefab, fuelPoint.position, Quaternion.identity);
-            availablePoints.RemoveAt(fuelIndex);
-
-            // Fill remaining with ammo/fuel at random.
-            foreach (Transform point in availablePoints)
-            {
-                GameObject prefabToSpawn = PickRandomPrefab();
-                Instantiate(prefabToSpawn, point.position, Quaternion.identity);
-            }
+            GameObject prefabToSpawn = PickRandomPrefab();
+            Instantiate(prefabToSpawn, point.position, Quaternion.identity);
         }
     }
 
