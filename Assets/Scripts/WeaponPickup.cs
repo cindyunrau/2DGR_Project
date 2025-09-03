@@ -9,9 +9,6 @@ public class WeaponPickup : MonoBehaviour
     public Transform player;
 
     private Animator animator;
-    
-    private bool gotPistol = false;
-    private bool gotShotgun = false;
 
     private void Awake()
     {
@@ -45,9 +42,9 @@ public class WeaponPickup : MonoBehaviour
                 gm.AddPistol();
                 Destroy(gameObject);
 
-                if (!gotPistol)
+                if (!gm.gotPistol)
                 {
-                    gotPistol = true;
+                    gm.gotPistol = true;
                     gm.AddAmmo(8);
                 }
             }
@@ -56,9 +53,9 @@ public class WeaponPickup : MonoBehaviour
                 gm.AddShotgun();
                 Destroy(gameObject);
 
-                if (!gotShotgun)
+                if (!gm.gotShotgun)
                 {
-                    gotShotgun = true;
+                    gm.gotShotgun = true;
                     gm.AddAmmo(24);
                 }
             }

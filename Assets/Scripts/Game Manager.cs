@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
     private int time;
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
 
+    public bool gotPistol = false;
+    public bool gotShotgun = false;
+
     // Debug Objects
     public TMP_Text debugText;
 
